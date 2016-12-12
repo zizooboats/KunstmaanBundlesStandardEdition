@@ -1,0 +1,111 @@
+
+body { color: #333; background: #f0f0f0; }
+.body-homepage-new { background: #fff;  }
+
+a, .lnk { color: #0A4856; transition: color 0.2s ease; }
+    a:hover, .lnk:hover,
+    a:focus, .lnk:focus,
+    a:active .lnk:active { color: #47c2d2; }
+
+.lnk-invert { color: #47c2d2; }
+    .lnk-invert:hover,
+    .lnk-invert:focus,
+    .lnk-invert:active { color: #0A4856; }
+
+.copy a, .copy-mag a { color: #47c2d2; }
+    .copy a:hover, .copy-mag a:hover,
+    .copy a:focus, .copy-mag a:focus,
+    .copy a:active, .copy-mag a:active { color: #FC850F; }
+
+.lnk-alt {
+    color: inherit;
+    text-decoration: underline;
+}
+    .lnk-alt:hover,
+    .lnk-alt:focus,
+    .lnk-alt:active {
+        text-decoration: none;
+    }
+
+.lnk-anchor {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 20px;
+    color: #0A4856;
+    font-size: 21px;
+}
+
+
+/* Background colors
+   ========================================================================== */
+
+.bg-brand { background-color: #47c2d2; }
+.bg-brand-dark { background-color: #0A4856; color: #fff; }
+.bg-hot { background-color: #FC850F; }
+.bg-dist { background-color: #EB4E4C; }
+.bg-error { background-color: #B70C0C; color: #fff; }
+.bg-success { background-color: #40DF99; color: #fff; }
+.bg-info { background-color: #43AAE9; color: #fff; }
+.bg-info-alt { background-color: #FFFEC4; }
+.bg-frost { background-color: #fff; background-color: rgba(226,226,226,0.8); }
+.bg-meta { background-color: #eaeaea; }
+.bg-snow { background-color: #fff; }
+.bg-brand-grad {
+    background: rgb(36,90,155);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI0NWE5YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(left,  rgba(36,90,155,1) 0%, rgba(64,238,240,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(36,90,155,1)), color-stop(100%,rgba(64,238,240,1)));
+    background: -webkit-linear-gradient(left,  rgba(36,90,155,1) 0%,rgba(64,238,240,1) 100%);
+    background: -o-linear-gradient(left,  rgba(36,90,155,1) 0%,rgba(64,238,240,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(36,90,155,1) 0%,rgba(64,238,240,1) 100%);
+    background: linear-gradient(to right,  rgba(36,90,155,1) 0%,rgba(64,238,240,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#245a9b', endColorstr='#40eef0',GradientType=1 );
+    color: #fff;
+}
+
+
+/* Text colors
+   ========================================================================== */
+
+.clr-brand { color: #47c2d2; }
+.clr-brand-dark { color: #0A4856; }
+.clr-hot { color: #FC850F; }
+.clr-dist { color: #EB4E4C; }
+.clr-error { color: #B70C0C; }
+.clr-success { color: #40DF99; }
+.clr-success-alt { color: #19bd00; }
+.clr-info { color: #43AAE9; }
+.clr-info-alt { color: #FFFEC4; }
+.clr-meta { color: #999; }
+.clr-meta-alt { color: #666; }
+.clr-snow { color: #fff; }
+.clr-discount { color: #ff0101; }
+
+
+/* Seals
+   ========================================================================== */
+
+.seal { background: url(cssimg/seals/all.png); width: 60px; height: 63px; display: inline-block; text-indent: 100%; white-space: nowrap; overflow: hidden; }
+    .seal--5   { background-position: 0 0; }
+    .seal--10  { background-position: 0 -63px; }
+    .seal--15  { background-position: 0 -126px; }
+    .seal--20  { background-position: 0 -189px; }
+    .seal--25  { background-position: 0 -252px; }
+    .seal--30  { background-position: 0 -315px; }
+    .seal--35  { background-position: 0 -378px; }
+    .seal--40  { background-position: 0 -441px; }
+    .seal--45  { background-position: 0 -504px; }
+    .seal--50  { background-position: 0 -567px; }
+    .seal--hot { background-position: 0 -630px; }
+
+
+.ico-how { background: url(cssimg/how-it-works.png) no-repeat; width: 122px; height: 80px; display: inline-block; }
+    .ico-how--1 { background-position: 0 0; }
+    .ico-how--2 { background-position: -122px 0; }
+    .ico-how--3 { background-position: -244px 0; }
+
+.icon-trust { background: url(cssimg/trust/all.png); width: 40px; height: 40px; display: inline-block; vertical-align: middle; }
+    .icon-trust--medal { background-position: 0 0; }
+    .icon-trust--photo { background-position: -40px 0; }
+    .icon-trust--badge { background-position: -80px 0; }
+

@@ -1,0 +1,169 @@
+{% set locale = app.request.locale %}
+{% set isHomepage = page is defined ? 'Zizoo' in page.title : false %}
+{% set hideLanguageSwitcher = hideLanguageSwitcher is defined ? hideLanguageSwitcher : false %}
+
+<header class="header--fixed">
+
+    <div class="header {{ isHomepage ? 'header--transparent' : 'header--main' }}">
+
+        <div class="header__mobile-drawer">
+            <div class="header__mobile-drawer-inner">
+                <div class="header__mobile-cta">
+                    {{ 'zizoo.base.header.cta'|trans({}, 'messages') }}
+                </div>
+                <div class="header__mobile-phone">
+                    {{ 'zizoo.base.phone'|trans({}, 'messages') }}
+                </div>
+                {#{{ get_menu('header', app.request.locale, {'rootOpen': '<ul class="header__mobile-menu">'}) }}#}
+                {#<ul class="header__mobile-menu">#}
+                    {#<li>#}
+                        {#<a#}
+                            {#href="{{ get_path_by_internal_name('discounts_all', locale) }}"#}
+                            {#class="header__mobile-menu-item"#}
+                            {#data-track="click"#}
+                            {#data-track-label="MobileHeader"#}
+                            {#data-track-action="Select Deals"#}
+                        {#>{{ "zizoo_base.menu.deals"|trans({}, 'messages') }}</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a#}
+                            {#href="{{ get_path_by_internal_name('destinations_all', locale) }}"#}
+                            {#class="header__mobile-menu-item"#}
+                            {#data-track="click"#}
+                            {#data-track-label="MobileHeader"#}
+                            {#data-track-action="Select Destinations"#}
+                        {#>{{ "zizoo_base.menu.destinations"|trans({}, 'messages') }}</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a#}
+                            {#href="{{ path('zizoo_search_locations') }}"#}
+                            {#class="header__mobile-menu-item"#}
+                            {#data-track="click"#}
+                            {#data-track-label="MobileHeader"#}
+                            {#data-track-action="Select Boats"#}
+                        {#>{{ "zizoo_base.menu.boats"|trans({}, 'messages') }}</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a#}
+                            {#href="{{ path('ZizooBaseBundle_magazine') }}"#}
+                            {#class="header__mobile-menu-item"#}
+                            {#data-track="click"#}
+                            {#data-track-label="MobileHeader"#}
+                            {#data-track-action="Select Magazine"#}
+                        {#>{{ "zizoo_base.menu.magazine"|trans({}, 'messages') }}</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a#}
+                            {#href="{{ get_path_by_internal_name('contact', locale) }}"#}
+                            {#class="header__mobile-menu-item"#}
+                            {#data-track="click"#}
+                            {#data-track-label="MobileHeader"#}
+                            {#data-track-action="Select Contact"#}
+                        {#>{{ "zizoo.base.contact"|trans({}, 'messages') }}</a>#}
+                    {#</li>#}
+                {#</ul>#}
+                <div class="header__mobile-ua">
+                    {#{% include 'ZizooUserJourneyBundle:Page:login_widget.html.twig' with {#}
+                        {#menuItemOnly: true#}
+                    {#} %}#}
+                </div>
+            </div><!-- /.header__mobile-drawer-inner -->
+        </div><!-- /.header__mobile-drawer -->
+
+        <div class="wrapper wrapper--wide u-cf">
+
+            <a class="header__logo zizoo-logo" href="{{ get_path_by_internal_name('homepage', locale) }}">
+                Zizoo
+            </a>
+
+            <span class="header__mobile-wishlist">
+                {#{% include 'ZizooUserJourneyBundle:Elements:wishlist.html.twig' with {#}
+                    menuItemOnly: true
+                } %}
+            </span>
+
+            <span
+                class="header__mobile-trigger"
+                data-toggle-class="is-mobile-menu-open"
+                data-target="body"
+            >
+                <span class="header__mobile-trigger-inner">
+                    <span class="header__patty"></span>
+                </span>
+            </span>
+
+            <div class="header__menu header__menu--nav">
+                {#{{ get_menu('header', app.request.locale, {'rootOpen': '<ul class="header__mobile-menu">'}) }}#}
+            </div><!-- /.header__menu -->
+
+            <div class="header__menu">
+                <span class="header__menu-item is-text">
+                    <span class="header__phone">
+                        {{ 'zizoo.base.phone'|trans({}, 'messages') }}
+                    </span>
+                    <span class="header__hours">
+                        {{ "zizoo.base.work_hours.week"|trans }} <br>
+                        {{ "zizoo.base.work_hours.weekend"|trans }}
+                    </span>
+                </span>
+
+                {#{% include 'ZizooUserJourneyBundle:Elements:wishlist.html.twig' %}#}
+                {% if not hideLanguageSwitcher %}
+                    {#{% include 'CraueTwigExtensionsBundle:ChangeLanguage:changeLanguage.html.twig' with {#}
+                        {#type: 'menu'#}
+                    {#} %}#}
+                {% endif %}
+                {#{% include 'ZizooUserJourneyBundle:Page:login_widget.html.twig' %}#}
+            </div><!-- /.header__menu -->
+
+        </div><!-- /.wrapper -->
+    </div><!-- /.header -->
+
+    <div class="u-hidden">
+        <ul class="js-deals-menu">
+            <li>
+                {#<a class="menu-item" href="{{ "zizoo.menu.deals.1.url"|trans }}">#}
+                    {#{{ "zizoo.menu.deals.1.title"|trans }}#}
+                {#</a>#}
+                {#<a class="menu-item" href="{{ "zizoo.menu.deals.2.url"|trans }}">#}
+                    {#{{ "zizoo.menu.deals.2.title"|trans }}#}
+                {#</a>#}
+                {#<a class="menu-item" href="{{ "zizoo.menu.deals.3.url"|trans }}">#}
+                    {#{{ "zizoo.menu.deals.3.title"|trans }}#}
+                {#</a>#}
+                {#<a class="menu-item" href="{{ "zizoo.menu.deals.4.url"|trans }}">#}
+                    {#{{ "zizoo.menu.deals.4.title"|trans }}#}
+                {#</a>#}
+                {#<a class="menu-item" href="{{ get_path_by_internal_name('discounts_all', locale) }}">
+                    {{ get_node_trans_by_node_id(get_node_by_internal_name('discounts_all', locale).id, locale).title }}
+                </a>#}
+            </li>
+        </ul>
+
+        {% set destinationIds = [
+            'destinations_all',
+            'destinations_croatia',
+            'destinations_spain',
+            'destinations_greece',
+            'destinations_turkey',
+            'destinations_italy',
+            'destinations_france',
+            'destinations_caribbean',
+            'destinations_portugal',
+        ] %}
+        <ul class="js-destinations-menu">
+            <li>
+                {#{% for id in destinationIds %}#}
+                    {#{% set path = get_path_by_internal_name(id, locale) %}#}
+                    {#{% set node = get_node_by_internal_name(id, locale) %}#}
+                    {#{% if path and node %}#}
+                        {#<a class="menu-item" href="{{ path }}">#}
+                            {#{{ get_node_trans_by_node_id(node.id, locale).title }}#}
+                        {#</a>#}
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+            </li>
+        </ul>
+    </div>
+
+</header>

@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src:url('../fonts/FontAwesome.eot?v=3');
+    src:url('../fonts/FontAwesome.eot?v=3#iefix') format('embedded-opentype'),
+        url('../fonts/FontAwesome.woff2?v=3') format('woff2'),
+        url('../fonts/FontAwesome.woff?v=3') format('woff'),
+        url('../fonts/FontAwesome.ttf?v=3') format('truetype'),
+        url('../fonts/FontAwesome.svg?v=3#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fa {
+    font-family: 'FontAwesome';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-heart:before {
+    content: "\f004";
+}
+.fa-user:before {
+    content: "\f007";
+}
+.fa-times:before,
+.fa-close:before {
+    content: "\f00d";
+}
+.fa-lock:before {
+    content: "\f023";
+}
+.fa-bookmark:before {
+    content: "\f02e";
+}
+.fa-map-marker:before {
+    content: "\f041";
+}
+.fa-check-square-o:before {
+    content: "\f046";
+}
+.fa-check-circle:before {
+    content: "\f058";
+}
+.fa-ban:before {
+    content: "\f05e";
+}
+.fa-arrow-right:before {
+    content: "\f061";
+}
+.fa-plus:before {
+    content: "\f067";
+}
+.fa-exclamation-circle:before {
+    content: "\f06a";
+}
+.fa-plane:before {
+    content: "\f072";
+}
+.fa-calendar:before {
+    content: "\f073";
+}
+.fa-twitter-square:before {
+    content: "\f081";
+}
+.fa-facebook-square:before {
+    content: "\f082";
+}
+.fa-thumbs-o-up:before {
+    content: "\f087";
+}
+.fa-heart-o:before {
+    content: "\f08a";
+}
+.fa-phone:before {
+    content: "\f095";
+}
+.fa-twitter:before {
+    content: "\f099";
+}
+.fa-facebook:before {
+    content: "\f09a";
+}
+.fa-credit-card:before {
+    content: "\f09d";
+}
+.fa-rss:before,
+.fa-feed:before {
+    content: "\f09e";
+}
+.fa-globe:before {
+    content: "\f0ac";
+}
+.fa-wrench:before {
+    content: "\f0ad";
+}
+.fa-pinterest:before {
+    content: "\f0d2";
+}
+.fa-google-plus-square:before {
+    content: "\f0d4";
+}
+.fa-google-plus:before {
+    content: "\f0d5";
+}
+.fa-money:before {
+    content: "\f0d6";
+}
+.fa-envelope:before {
+    content: "\f0e0";
+}
+.fa-linkedin:before {
+    content: "\f0e1";
+}
+.fa-dashboard:before {
+    content: "\f0e4";
+}
+.fa-suitcase:before {
+    content: "\f0f2";
+}
+.fa-angle-double-right:before {
+    content: "\f101";
+}
+.fa-angle-left:before {
+    content: "\f104";
+}
+.fa-angle-right:before {
+    content: "\f105";
+}
+.fa-angle-up:before {
+    content: "\f106";
+}
+.fa-angle-down:before {
+    content: "\f107";
+}
+.fa-spinner:before {
+    content: "\f110";
+}
+.fa-anchor:before {
+    content: "\f13d";
+}
+.fa-sun-o:before {
+    content: "\f185";
+}
+.fa-arrow-circle-o-right:before {
+    content: "\f18e";
+}
+.fa-database:before {
+    content: "\f1c0";
+}
+.fa-life-bouy:before {
+    content: "\f1cd";
+}
+.fa-ship:before {
+    content: "\f21a";
+}

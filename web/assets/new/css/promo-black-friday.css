@@ -1,0 +1,30 @@
+.hero--black-friday { background-image: url(../img/black-friday/bg-s.jpg); }
+
+@media only screen and (min-width: 680px) {
+    .hero--black-friday { background-image: url(../img/black-friday/bg-m.jpg); }
+}
+@media only screen and (min-width: 1440px) {
+    .hero--black-friday { background-image: url(../img/black-friday/bg-l.jpg); }
+}
+
+
+.black-friday-promo {
+    display: inline-block;
+    width: 257px;
+    height: 103px;
+    text-indent: -9999px;
+    background: url(../img/black-friday/promo-cyberweek.png);
+    background-size: 257px 103px;
+    background-repeat: no-repeat;
+}
+.hero--black-friday .black-friday-promo { display: none; }
+
+@media only screen and (min-width: 700px) {
+    .hero--black-friday .black-friday-promo {
+        display: inline-block;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 3;
+    }
+}

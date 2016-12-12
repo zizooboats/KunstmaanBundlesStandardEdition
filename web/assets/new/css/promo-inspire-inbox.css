@@ -1,0 +1,146 @@
+.hero--inspire {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background-color: #B6D6EF;
+    background-position: center bottom;
+    text-align: center;
+}
+
+.inspire {
+    position: relative;
+    max-width: 525px;
+    padding: 70px 30px;
+    margin: 0 auto 15px;
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border-radius: 10px;
+}
+    .inspire__title { margin: -50px 0 10px; }
+    .lang-de .inspire__title { margin-top: -60px; }
+    .inspire__text {
+        max-width: 430px;
+        margin: 0 auto;
+    }
+    .inspire__form {
+        max-width: 290px;
+        margin: 20px auto 0;
+    }
+    .lang-de .inspire__form { margin-top: 5px; }
+    .inspire__terms {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        outline: 0;
+    }
+    .inspire-holder {
+        padding: 65px 10px 10px;
+        position: absolute;
+        z-index: 8;
+        top: 100%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: top 0.4s ease-in;
+    }
+    .inspire-fine-print {
+        text-align: center;
+        color: #fff;
+    }
+
+
+
+
+.hero--easter-hunt {
+    min-height: 666px;
+    padding-top: 65px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+}
+.hero--easter-hunt .hero__content { color: #19626b; }
+.hero--easter-hunt::after {
+    content: '';
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 0.35s ease-in;
+}
+.hero--easter-hunt.is-revealed::after { opacity: 1; }
+.easter-hunt-trigger {
+    position: absolute;
+    z-index: 7;
+    left: 50%;
+    bottom: 200px;
+    width: 30px;
+    height: 25px;
+    margin-left: -31px;
+}
+    .hero--easter-hunt.is-revealed .inspire-holder { top: 0; }
+    .hero--easter-hunt .inspire__title { margin-top: -75px; }
+
+
+@media only screen and (min-width: 580px) {
+    .hero--inspire { min-height: 668px; }
+    .inspire {
+        border-radius: 50%;
+        min-height: 525px;
+    }
+}
+@media only screen and (min-width: 640px) {
+    .hero--easter-hunt { padding-top: 35px; }
+    .hero--easter-hunt .inspire__title { margin-top: -120px; }
+    .inspire-fine-print {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1350px) {
+    .hero--inspire { background-size: cover; }
+}
+
+
+
+
+.hero--boat-counter {
+    min-height: 680px;
+    background-color: #86cfe7;
+    background-position: center bottom;
+}
+    .hero--boat-counter .hero__content {
+        color: #19626b;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+        .hero--boat-counter .hero__content.is-ready { opacity: 1; }
+    .hero--boat-counter .trigger {
+        margin: 0 5px;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 7;
+        font-size: 18px;
+        border-color: #307582;
+        color: #19626b;
+        transition: all 0.3s ease;
+    }
+    .hero--boat-counter .trigger:hover,
+    .hero--boat-counter .trigger:focus {
+        color: #fff;
+        background-color: #19626b;
+    }
+    .hero--boat-counter.is-revealed .trigger { opacity: 0; }
+
+@media only screen and (min-width: 640px) {
+    .hero--boat-counter .inspire__title { margin: -60px 0 -10px; }
+}

@@ -11,7 +11,11 @@ framework:
         # set true if no scripting languages need to access the cookie
         cookie_httponly:    false
     assets:
-        version:     v1
+        version: v1
+        base_urls: //
+        packages:
+            zizoo:
+                base_urls: //
 
 twig:
     globals:

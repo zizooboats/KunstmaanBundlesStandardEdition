@@ -1,0 +1,134 @@
+
+/* Typography
+   ========================================================================== */
+
+body, .h-stamp, .h-block,
+.hero--home-new .hero__title { font-family: Arial, sans-serif; font-weight: 300; }
+
+
+/* Headings
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 { font-weight: 700; font-style: normal; text-transform: none; }
+h1, .h1 { font-size: 36px; line-height: 1; }
+h2, .h2 { font-size: 24px; }
+h3, .h3 { font-size: 21px; }
+h4, .h4 { font-size: 18px; }
+h5, .h5 { font-size: 16px; }
+h6, .h6 { font-size: 14px; }
+
+.h0 { font-size: 36px; }
+.h-stamp { text-transform: uppercase; font-style: normal; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; }
+    .h-stamp--flush { padding-top: 3px; }
+.h-block { position: relative; margin-bottom: 1.1em; text-transform: uppercase; font-style: normal; font-size: 26px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; text-align: center; }
+    .h-block strong { font-weight: 800; }
+    .h-block:after { content: ' '; position: absolute; bottom: -0.3em; left: 50%; width: 100px; height: 6px; background: #4fc2d1; margin-left: -50px; }
+
+
+/* Body
+   ========================================================================== */
+
+p, .p { font-size: 16px; line-height: 1.4; }
+    .p--l { font-size: 18px; line-height: 1.33; font-weight: 400; }
+    .p--m { font-size: 16px; line-height: 1.4; }
+    .p--s { font-size: 14px; line-height: 1.33; }
+    .p--s-alt { font-size: 13px; line-height: 1.33; }
+    .p--xs { font-size: 12px; line-height: 1.33; }
+    .p--xxs { font-size: 10px; line-height: 1.33; }
+
+.quote {
+    font-size: 24px;
+    line-height: 1.3;
+    font-style: italic;
+    font-family: 'Times New Roman', serif;
+}
+.quote::before { content: '“'; }
+.quote::after  { content: '”'; }
+
+
+/* Misc
+   ========================================================================== */
+
+.fw-thin { font-weight: 100; }
+.fw-light { font-weight: 300; }
+.fw-normal { font-weight: 400; }
+.fw-semibold { font-weight: 600; }
+.fw-bold { font-weight: 700; }
+.fw-extrabold { font-weight: 800; }
+.fs-normal { font-style: normal; }
+.tt-upper { text-transform: uppercase; }
+
+
+/* Spacing
+   ========================================================================== */
+.copy {}
+    .copy h1, .copy .h1 { margin-bottom: 0.75em; }
+    .copy h2, .copy .h2 { margin-bottom: 0.75em; }
+    .copy h3, .copy .h3 { margin-bottom: 0.75em; }
+    .copy h4, .copy .h4 { margin-bottom: 0.5em; }
+    .copy h5, .copy .h5 { margin-bottom: 0.5em; }
+    .copy h6, .copy .h6 { margin-bottom: 0.5em; }
+    .copy p, .copy .p { margin-bottom: 1em; }
+    .copy .quote {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .copy p + h1 { margin-top: 2em; }
+    .copy p + h2 { margin-top: 2em; }
+    .copy p + h3 { margin-top: 2em; }
+    .copy p + h4 { margin-top: 2em; }
+    .copy p + h5 { margin-top: 2em; }
+    .copy p + h6 { margin-top: 2em; }
+
+    .copy ul, .copy ol { margin-left: 1.5em; margin-bottom: 1.5em; }
+    .copy li { margin-bottom: 0.5em; }
+    .copy ul { list-style-type: circle; }
+    .copy ol { list-style-type: decimal; }
+
+    .copy--s p,
+    .copy--s .p { font-size: 15px; }
+    .copy--s h2,
+    .copy--s .h2 { font-size: 21px; margin-bottom: .5em; }
+
+.copy-sp-xs { margin-bottom: 0.15em !important; }
+.copy-sp-s { margin-bottom: 0.3em !important; }
+.copy-sp-m { margin-bottom: 0.5em !important; }
+.copy-sp-l { margin-bottom: 0.7em !important; }
+
+.copy-mag {}
+    .copy-mag h1,
+    .copy-mag h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 0.65em;
+    }
+    .copy-mag h3 {
+        font-size: 21px;
+        font-weight: bold;
+        margin-bottom: 0.65em;
+    }
+    .copy-mag p {
+        font-size: 16px;
+        margin-bottom: 1.3em;
+    }
+
+/* Media queries
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+
+    h1, .h1 { font-size: 48px; line-height: 1; }
+    h2, .h2 { font-size: 36px; line-height: 1; }
+    h3, .h3 { font-size: 24px; }
+    h4, .h4 { font-size: 21px; }
+    h5, .h5 { font-size: 18px; }
+    h6, .h6 { font-size: 16px; }
+
+    .h0 { font-size: 60px; }
+    .h-block { font-size: 32px; }
+
+    p, .p,
+    .copy ul, .copy ol { font-size: 18px; }
+
+}
