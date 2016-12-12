@@ -1,0 +1,131 @@
+{% set locale = app.request.locale %}
+{% set hideLanguageSwitcher = hideLanguageSwitcher is defined ? hideLanguageSwitcher : false %}
+
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="wrapper wrapper--wide">
+            <dl class="footer__section">
+                {% if not hideLanguageSwitcher %}
+                    <dt class="footer__section-title">{{ "zizoo.base.language"|trans }}</dt>
+                    {#{% include 'CraueTwigExtensionsBundle:ChangeLanguage:changeLanguage.html.twig' with {#}
+                        {#type: 'list'#}
+                    {#} %}#}
+                    <br><br>
+                {% endif %}
+
+                <dt class="footer__section-title">{{ "zizoo.base.currency"|trans }}</dt>
+                {#{% include 'ZizooUserJourneyBundle:Elements:currency_widget.html.twig' with {#}
+                    type: 'list'
+                } %}
+                <br><br>
+
+                <dt class="footer__section-title">{{ "zizoo.base.social"|trans }}</dt>
+                <dd>
+                    <ul class="footer__social">
+                        <li class="footer__social-item"><a class="footer__icon" href="{{ "zizoo.base.blog.link"|trans }}"><span class="fa fa-feed"></span><span class="u-hidden-visually"> Blog</span></a></li>
+                        <li class="footer__social-item"><a class="footer__icon" target="_blank" href="https://www.facebook.com/ZizooBoats" title="Facebook"><span class="fa fa-facebook"></span><span class="u-hidden-visually"> Facebook</span></a></li>
+                        <li class="footer__social-item"><a class="footer__icon" target="_blank" href="https://twitter.com/ZizooBoats" title="Twitter"><span class="fa fa-twitter"></span><span class="u-hidden-visually"> Twitter</span></a></li>
+                        <li class="footer__social-item"><a class="footer__icon" target="_blank" href="https://plus.google.com/+Zizooboats" rel="publisher" title="Google+"><span class="fa fa-google-plus"></span><span class="u-hidden-visually"> Google</span></a></li>
+                        <li class="footer__social-item"><a class="footer__icon" target="_blank" href="http://www.pinterest.com/zizooboats" title="Pinterest"><span class="fa fa-pinterest"></span><span class="u-hidden-visually"> Pinterest</span></a></li>
+                        <li class="footer__social-item"><a class="footer__icon" target="_blank" href="http://www.linkedin.com/company/zizooboats" title="LinkedIn"><span class="fa fa-linkedin"></span><span class="u-hidden-visually"> LinkedIn</span></a></li>
+                    </ul>
+                </dd>
+            </dl>
+
+            <dl class="footer__section">
+                <dt class="footer__section-title">{{ "zizoo.base.about"|trans }}</dt>
+                <dd>
+                    <ul>
+                        {#<li><a href="{{ get_path_by_internal_name('team', locale) }}">{{ "zizoo.base.team"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('press', locale) }}">{{ "zizoo.base.press"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('contact', locale) }}">{{ "zizoo.base.contact"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('terms', locale) }}">{{ "zizoo.base.terms"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('faq', locale) }}">{{ "zizoo.base.faq"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('reassurance', locale) }}">{{ "zizoo.base.usp.why"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('careers', locale) }}">{{ "zizoo.base.careers"|trans }}</a></li>#}
+                        {#<li><a href="{{ get_path_by_internal_name('cookies', locale) }}">{{ "zizoo.base.cookies"|trans }}</a></li>#}
+                        {#<li><a href="{{ "zizoo.base.blog.link"|trans }}">{{ "zizoo.base.blog"|trans }}</a></li>#}
+                    </ul>
+
+                </dd>
+            </dl>
+
+            <dl class="footer__section">
+                <dt class="footer__section-title">{{ "zizoo.base.company"|trans }}</dt>
+                <dd>
+                    <div itemscope itemtype="http://schema.org/Organization">
+                        <div itemprop="name">Zizooboats GmbH</div>
+                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <div itemprop="streetAddress">Schönlaterngasse 11/11</div>
+                            <div itemprop="postalCode">1010</span> <span itemprop="addressLocality">{{ "zizoo.base.contact.vienna"|trans }}</div>
+                            <div itemprop="addressCountry">{{ "zizoo.base.contact.at"|trans }}</div>
+                        </div>
+                        <div itemprop="vatID">{{ "zizoo.base.taxNumber"|trans }}</div>
+                        <br>
+                        <div itemprop="name">Zizooboats GmbH</div>
+                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <div itemprop="streetAddress">Zossener Str. 56</div>
+                            <div itemprop="postalCode">10961</span> <span itemprop="addressLocality">Berlin</div>
+                            <div itemprop="addressCountry">{{ "zizoo.base.contact.de"|trans }}</div>
+                        </div>
+                        <br>
+                        <div itemprop="name">Zizooboats GmbH</div>
+                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <div itemprop="streetAddress">Amruševa ul. 6</div>
+                            <div itemprop="postalCode">10000</span> <span itemprop="addressLocality">Zagreb</div>
+                            <div itemprop="addressCountry">{{ "zizoo.base.contact.hr"|trans }}</div>
+                        </div>
+                        <div class="u-hidden-visually">
+                            <meta itemprop="logo" alt="Zizooboats GmbH Logo" content="https://www.zizoo.com/bundles/zizoouserjourney/images/zizoo-blue.png" />
+                            <span itemprop="telephone">+43 676 970 1755</span>
+                            <link itemprop="url" href="https://www.zizoo.com">
+                              <a itemprop="sameAs" href="https://www.facebook.com/ZizooBoats">Facebook</a>
+                              <a itemprop="sameAs" href="https://twitter.com/ZizooBoats">Twitter</a>
+                              <a itemprop="sameAs" href="https://plus.google.com/+Zizooboats">Google+</a>
+                              <a itemprop="sameAs" href="https://www.instagram.com/zizoo_boats/">Instagram</a>
+                              <a itemprop="sameAs" href="https://www.linkedin.com/company/zizooboats">LinkedIn</a>
+                              <a itemprop="sameAs" href="https://www.pinterest.com/zizooboats">Pinterest</a>
+                              <a itemprop="sameAs" href="https://en.wikipedia.org/wiki/Zizoo">Wikipedia</a>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="footer__section">
+                <dt class="footer__section-title">{{ "zizoo.base.contact"|trans }}</dt>
+                <dd>
+                    <ul>
+                        <li>{{ "zizoo.base.contact.us"|trans }}: {{ 'zizoo_base.phone.us'|trans({}, 'messages', 'en') }}</li>
+                        <li>{{ "zizoo.base.contact.de"|trans }}: {{ 'zizoo_base.phone.de'|trans({}, 'messages', 'en') }}</li>
+                        <li>{{ "zizoo.base.contact.uk"|trans }}: {{ 'zizoo_base.phone.uk'|trans({}, 'messages', 'en') }}</li>
+                        <li>{{ "zizoo.base.contact.at"|trans }}: {{ 'zizoo_base.phone.at'|trans({}, 'messages', 'en') }}</li>
+                    </ul>
+                    <br>
+                    <p class="p--s">
+                        <strong>{{ "zizoo.base.contact.cta"|trans }}</strong>
+                        <br>{{ "zizoo.base.work_hours.week"|trans }}
+                        <br>{{ "zizoo.base.work_hours.weekend"|trans }}
+                    </p>
+                </dd>
+            </dl>
+
+            <dl class="footer__section footer__section--sitemap">
+                <dt class="footer__section-title">{{ "zizoo.base.sitemap"|trans }}</dt>
+                {#<dd>{{ knp_menu_render('ZizooUserJourneyBundle:MenuBackupBuilder:footerSitemapMenu') }}</dd>#}
+            </dl>
+        </div><!-- /.wrapper -->
+    </div><!-- /.footer__inner -->
+
+    <div class="wrapper wrapper--wide">
+        <div class="footer__copyright">
+            <a href="/" class="footer__logo zizoo-logo">Zizoo</a>
+            <span class="footer__copyright-text">© 2012—{{ "now"|date("Y") }} Zizooboats GmbH™ {{ "zizoo.base.rights"|trans }}.</span>
+            <img
+                src="{{ 'zizoo.base.image_placeholder'|trans }}"
+                data-src="{{ asset('assets/new/img/accepted-cards.png') }}"
+                alt="{{ "zizoo.base.cards"|trans }}"
+                class="footer__cards img-fluid-alt js-img-lazy"
+            >
+        </div>
+    </div><!-- /.wrapper -->
+</footer>

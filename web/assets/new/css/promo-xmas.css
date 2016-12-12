@@ -1,0 +1,30 @@
+.hero--xmas { background-image: url(../img/xmas/bg-s.jpg); }
+
+@media only screen and (min-width: 680px) {
+    .hero--xmas { background-image: url(../img/xmas/bg-m.jpg); }
+}
+@media only screen and (min-width: 1440px) {
+    .hero--xmas { background-image: url(../img/xmas/bg-l.jpg); }
+}
+
+.xmas-promo {
+    display: inline-block;
+    width: 287px;
+    height: 103px;
+    text-indent: -9999px;
+    background-image: url(../img/xmas/promo-en.png);
+    background-size: 287px 103px;
+    background-repeat: no-repeat;
+}
+.lang-de .xmas-promo { background-image: url(../img/xmas/promo-de.png); }
+.hero--xmas .xmas-promo { display: none; }
+
+@media only screen and (min-width: 700px) {
+    .hero--xmas .xmas-promo {
+        display: inline-block;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 3;
+    }
+}

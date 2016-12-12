@@ -1,0 +1,29 @@
+.accordion { margin-top: -10px; }
+    .accordion__item { border-bottom: 1px solid #ababab; }
+    .accordion__title {
+        padding: 10px 40px 10px 0;
+        position: relative;
+        cursor: pointer;
+    }
+        .accordion__title::after {
+            content: '+';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: normal;
+        }
+    .accordion__text {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease;
+    }
+    .accordion__inner {
+        padding: 5px 0 10px;
+    }
+    .accordion__item.is-open .accordion__title::after {
+        content: '–';
+        top: 5px;
+    }
+    .accordion__item.is-open .accordion__text { max-height: 100em; }

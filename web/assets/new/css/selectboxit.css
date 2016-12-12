@@ -1,0 +1,244 @@
+/* ==========================================================================
+   Selectbox
+   ========================================================================== */
+
+/**
+ * Default
+ */
+
+.selectboxit-container {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+}
+
+.selectboxit-container * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.selectboxit-container .selectboxit {
+    display: block;
+    position: relative;
+    height: 26px;
+    cursor: pointer;
+}
+
+.selectboxit-container .selectboxit.selectboxit-open:after {
+    display: block;
+    position: absolute;
+    top: 34px;
+    right: 8px;
+    content: "";
+    width: 10px;
+    height: 7px;
+    z-index: 9999999999999;
+}
+
+.selectboxit-container .selectboxit .selectboxit-text {
+    float: left;
+    display: block;
+    height: 26px;
+    font: 12px/26px Arial;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    margin: 0 1px 0 0;
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border-radius: 5px 0 0 5px;
+    overflow: hidden;
+}
+
+.selectboxit-container .selectboxit .selectboxit-arrow-container {
+    display: block;
+    position: relative;
+    float: left;
+    width: 26px;
+    height: 26px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border-radius: 0 5px 5px 0;
+}
+
+.selectboxit-container .selectboxit .selectboxit-arrow-container * {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center 11px;
+    background-image: url(../../zizoobase/images/selectbox-arrow.png);
+}
+
+.selectboxit-container .selectboxit-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    font: 12px/20px Arial;
+    max-height: 197px;
+    padding: 5px 0;
+    margin: 0 0 0 0 !important;
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    z-index: 9999999999999;
+}
+
+.selectboxit-container .selectboxit-options li {
+    padding: 0 15px;
+}
+
+.selectboxit-container .selectboxit-options li a {
+    display: block;
+    text-overflow: ellipsis;
+    padding: 7px 0 5px 0;
+    background: url(../../zizoobase/images/selectbox-line.png) repeat-x left top;
+    overflow: hidden;
+}
+
+.selectboxit-container .selectboxit-options li:first-child a {
+    background: none;
+}
+
+.selectboxit-container .selectboxit-options .borderless a {
+    padding: 1px 0 5px 0;
+    background: none;
+}
+
+.selectboxit-container .selectboxit-options li a:hover {
+    color: #47c2d2;
+}
+
+.selectboxit.selectboxit-disabled,
+.selectboxit-options .selectboxit-disabled {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    cursor: default;
+}
+
+/**
+ * Selectbox sizes
+ */
+
+.selectboxit-container .selectboxit.small {
+    height: 20px;
+}
+
+.selectboxit-container .selectboxit.small.selectboxit-open:after {
+    top: 28px;
+}
+
+.selectboxit-container .selectboxit.small .selectboxit-text {
+    height: 20px;
+    font-style: italic;
+    line-height: 20px;
+}
+
+.selectboxit-container .selectboxit.small.gray .selectboxit-text {
+    color: #969696;
+}
+
+.selectboxit-container .selectboxit.small .selectboxit-arrow-container {
+    width: 20px;
+    height: 20px;
+}
+
+.selectboxit-container .selectboxit.small .selectboxit-arrow-container * {
+    background-position: center 8px;
+    background-image: url(../../zizoobase/images/selectbox-arrow-small.png);
+}
+
+/**
+ * Selectbox colors
+ */
+
+.selectboxit-container .selectboxit.white.selectboxit-open:after {
+    background: url(../../zizoobase/images/selectbox-options-arrow-white.png);
+}
+
+.selectboxit-container .selectboxit.white .selectboxit-text,
+.selectboxit-container .selectboxit.white .selectboxit-arrow-container {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    color: #000;
+    background: -moz-linear-gradient(top, #ffffff 50%, #f2f2f2 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#ffffff), color-stop(50%,#f2f2f2));
+    background: -webkit-linear-gradient(top, #ffffff 50%,#f2f2f2 50%);
+    background: -o-linear-gradient(top, #ffffff 50%,#f2f2f2 50%);
+    background: -ms-linear-gradient(top, #ffffff 50%,#f2f2f2 50%);
+    background: linear-gradient(to bottom, #ffffff 50%,#f2f2f2 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f2f2f2",GradientType=0);
+}
+
+.selectboxit-container .selectboxit.white.selectboxit-hover .selectboxit-text,
+.selectboxit-container .selectboxit.white.selectboxit-hover .selectboxit-arrow-container {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    background: -moz-linear-gradient(top, #e1e2e2 50%, #d6d6d6 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#e1e2e2), color-stop(50%,#d6d6d6));
+    background: -webkit-linear-gradient(top, #e1e2e2 50%,#d6d6d6 50%);
+    background: -o-linear-gradient(top, #e1e2e2 50%,#d6d6d6 50%);
+    background: -ms-linear-gradient(top, #e1e2e2 50%,#d6d6d6 50%);
+    background: linear-gradient(to bottom, #e1e2e2 50%,#d6d6d6 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e1e2e2", endColorstr="#d6d6d6",GradientType=0);
+}
+
+.selectboxit-container .selectboxit-options.white {
+    background: #fff;
+}
+
+.selectboxit-container .selectboxit.gray.selectboxit-open:after {
+    background: url(../../zizoobase/images/selectbox-options-arrow-gray.png);
+}
+
+.selectboxit-container .selectboxit.gray .selectboxit-text,
+.selectboxit-container .selectboxit.gray .selectboxit-arrow-container {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    color: #000;
+    background: -moz-linear-gradient(top, #ebecec 50%, #dfe0e0 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#ebecec), color-stop(50%,#dfe0e0));
+    background: -webkit-linear-gradient(top, #ebecec 50%,#dfe0e0 50%);
+    background: -o-linear-gradient(top, #ebecec 50%,#dfe0e0 50%);
+    background: -ms-linear-gradient(top, #ebecec 50%,#dfe0e0 50%);
+    background: linear-gradient(to bottom, #ebecec 50%,#dfe0e0 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ebecec", endColorstr="#dfe0e0",GradientType=0);
+}
+
+.selectboxit-container .selectboxit.gray.selectboxit-hover .selectboxit-text,
+.selectboxit-container .selectboxit.gray.selectboxit-hover .selectboxit-arrow-container {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    background: -moz-linear-gradient(top, #d3d4d4 50%, #c8c9c9 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#d3d4d4), color-stop(50%,#c8c9c9));
+    background: -webkit-linear-gradient(top, #d3d4d4 50%,#c8c9c9 50%);
+    background: -o-linear-gradient(top, #d3d4d4 50%,#c8c9c9 50%);
+    background: -ms-linear-gradient(top, #d3d4d4 50%,#c8c9c9 50%);
+    background: linear-gradient(to bottom, #d3d4d4 50%,#c8c9c9 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d3d4d4", endColorstr="#c8c9c9",GradientType=0);
+}
+
+.selectboxit-container .selectboxit-options.gray {
+    background: #ebecec;
+}
+
+
+

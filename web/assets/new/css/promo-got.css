@@ -1,0 +1,70 @@
+.hero--got {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    min-height: 360px;
+    border-bottom: 0;
+    text-align: center;
+    background-color: #6e6757;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+}
+    .hero--got .hero__title {
+        font-family: 'Arial Black', Arial, sans-serif;
+        font-size: 36px;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        text-shadow: none;
+    }
+    .hero--got .hero__subtitle {
+        padding-top: 10px;
+        font-size: 16px;
+        font-weight: normal;
+        letter-spacing: 0.04em;
+    }
+    .hero--got .shareTools { padding-top: 40px; }
+
+.got-callout {
+    padding: 20px;
+    text-align: center;
+}
+    .got-callout__price {
+        min-height: 165px;
+        width: 185px;
+        padding: 40px 30px;
+        margin: 20px auto;
+        background: url(../img/got/wreath.png) no-repeat center center;
+    }
+    .got-callout__price-amount {
+        display: block;
+        font-size: 45px;
+        line-height: 1;
+        font-weight: bold;
+    }
+    .got-callout__price-desc {
+        text-transform: uppercase;
+        font-size: 17px;
+    }
+    .got-callout__text {
+        max-width: 310px;
+        font-size: 16px;
+        margin: 0 auto;
+    }
+    .got-callout .button {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+#cboxCurrent { display: none !important; }
+
+@media only screen and (min-width: 900px) {
+    .hero--got .hero__title {
+        font-size: 66px;
+        letter-spacing: -0.03em;
+    }
+    .hero--got .hero__title--long { font-size: 48px; }
+    .hero--got .hero__subtitle {
+        font-size: 28px;
+        letter-spacing: 0.04em;
+    }
+}

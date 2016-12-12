@@ -1,0 +1,21 @@
+{% if topBar is defined and topBar %}
+<div class="lyt-search__bar{{ topBarClass is defined ? ' ' ~ topBarClass : '' }}">
+    <div class="wrapper">
+        {% block top %}top{% endblock %}
+    </div><!-- /.wrapper -->
+</div><!-- /.lyt-search__bar -->
+
+{% endif %}
+<div class="wrapper">
+    <div class="lyt-search u-cf">
+        <div class="lyt-search__main-wrapper">
+            <div class="lyt-search__main">
+                {% block main %}main{% endblock %}
+            </div><!-- /.lyt-search__main -->
+        </div><!-- /.lyt-search__main-wrapper -->
+
+        <div class="lyt-search__side{{ sideClass is defined ? ' ' ~ sideClass : '' }}">
+            {% block side %}side{% endblock %}
+        </div><!-- /.lyt-search__side -->
+    </div><!-- /.lyt-search -->
+</div><!-- /.wrapper -->

@@ -1,0 +1,38 @@
+
+/* Tables
+   ========================================================================== */
+
+.tbl-data { table-layout: fixed; width: 100%; text-align: left; border: 1px solid #d8d8d8; border-radius: 2px; background: #fff; }
+    .tbl-data th,
+    .tbl-data td { padding: 11px 9px; }
+    .tbl-data th { text-align: left; background-color: #f6f6f6; }
+    .tbl-data td { vertical-align: top; border-top: 1px solid #eee; }
+    .tbl-data tr:nth-child(even) td { background: #f9f9f9; }
+
+    .tbl-data__total { vertical-align: text-bottom !important; font-weight: bold; border-top-color: #d8d8d8 !important; }
+
+    .tbl-data--s { font-size: 13px; }
+        .tbl-data--s th,
+        .tbl-data--s td { padding: 4px 9px; }
+
+    .tbl-data--borderless { border: 0; }
+        .tbl-data--borderless tr:first-child td { border-top: 0; }
+        .tbl-data--borderless th:first-child,
+        .tbl-data--borderless td:first-child { padding-left: 0; }
+        .tbl-data--borderless th:last-child,
+        .tbl-data--borderless td:last-child { padding-right: 0; }
+
+.tbl-bare { table-layout: fixed; text-align: left; }
+    .tbl-bare tbody td,
+    .tbl-bare tbody th { padding: 3px 10px; }
+    .tbl-bare tbody th,
+    .tbl-bare tbody td:first-child { padding-left: 0; }
+    .tbl-bare tbody th { font-weight: normal; }
+
+
+@media only screen and (min-width: 800px) {
+
+    .tbl-data { font-size: 18px; }
+    .tbl-data--s { font-size: 13px; }
+
+}

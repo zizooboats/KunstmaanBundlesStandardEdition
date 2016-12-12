@@ -1,0 +1,157 @@
+
+/* Forms
+   ========================================================================== */
+
+.fm-widget2 {
+    width: 100%;
+    padding: 10px;
+    height: 36px;
+    font-size: 12px;
+    line-height: 1.1;
+    text-align: left;
+    color: #333;
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    -webkit-appearance: none;
+    outline: 0;
+}
+    textarea.fm-widget2 { height: auto; }
+    .fm-widget2[disabled],
+    .fm-widget2[readonly] {
+        cursor: not-allowed;
+        background-color: #eee;
+    }
+    .fm-widget2:focus {
+        outline: 0;
+        border-color: #888;
+    }
+
+.fm-label2 {
+    display: block;
+    padding-bottom: 7.5px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.fm-field2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin: 7.5px 0;
+}
+
+.fm-icon-field { position: relative; }
+    .fm-icon-field .fa {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 35px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent #c8c8c8 transparent transparent;
+        background: transparent;
+        line-height: 2;
+        text-align: center;
+        color: #a7a7a7;
+        pointer-events: none;
+    }
+    .fm-icon-field .fm-widget2 { padding-left: 45px; }
+    .fm-icon-field--right .fa {
+        left: auto;
+        right: 0;
+        border-color: transparent transparent transparent #c8c8c8;
+    }
+    .fm-icon-field--right .fm-widget2 {
+        padding-left: 10px;
+        padding-right: 45px;
+    }
+
+.fm-select2 { position: relative; }
+    .fm-select2 .fm-widget2 {
+        padding-right: 40px;
+        cursor: pointer;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        border-radius: 0;
+    }
+    .fm-select2 .fm-widget2::-ms-expand { display: none; }
+        .fm-select2::after {
+            content: '▼';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 35px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: transparent transparent transparent #c8c8c8;
+            background: transparent;
+            font-family: inherit;
+            font-size: 10px;
+            line-height: 3.5;
+            text-align: center;
+            color: #a7a7a7;
+            pointer-events: none;
+        }
+
+.fm-check2,
+.fm-radio2 { margin: 3px 0; }
+    .fm-check2 .fm-label2,
+    .fm-radio2 .fm-label2 { padding-top: 3px; }
+
+    .fm-check2--inline .fm-label2,
+    .fm-radio2--inline .fm-label2 {
+        display: inline-block;
+        width: auto;
+        margin-right: 5px;
+    }
+
+.fm--inline .fm-field2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 0;
+}
+
+
+
+/*
+
+    Custom
+
+*/
+
+.fm-multiselect2 { visibility: hidden; }
+
+.fm-field2 .selectize-control.single .selectize-input {
+    height: 36px !important;
+    border-width: 1px !important;
+    border-color: #c8c8c8;
+    outline: 0;
+}
+    .fm-field2 .selectize-control.single .is-focused { border-color: #888; }
+.fm-field2 .fm-request { min-height: 36px; }
+
+.fm-filters-inline .fm-group { margin: 10px 0; }
+.fm-filters-inline .fm-field2 { margin: 0; }
+.fm-filters-inline .fm-field2:not(.fm-field2--full) {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 50%;
+    margin-right: -4px;
+}
+    .fm-filters-inline .fm-field2:not(.fm-field2--full):nth-of-type(1) { padding-right: 5px; }
+    .fm-filters-inline .fm-field2:not(.fm-field2--full):nth-of-type(2) { padding-left: 5px; }
+
+@media only screen and (min-width: 980px) {
+    .fm-filters-inline .fm-group {
+        display: inline-block;
+        vertical-align: middle;
+        width: 33.33333%;
+        margin-right: -4px;
+    }
+    .fm-filters-inline .fm-group:nth-of-type(1) { padding-right: 10px; }
+    .fm-filters-inline .fm-group:nth-of-type(2) { padding: 0 10px; }
+    .fm-filters-inline .fm-group:nth-of-type(3) { padding-left: 10px; }
+}

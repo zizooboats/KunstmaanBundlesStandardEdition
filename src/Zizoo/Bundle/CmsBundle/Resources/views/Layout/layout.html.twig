@@ -1,71 +1,268 @@
-{% spaceless %}<!DOCTYPE html>
-{% set htmlLocale = app.request.locale|default(defaultlocale)|slice(0,2) %}
-<!--[if lte IE 9]> <html class="no-js lt-ie9" lang="{{ htmlLocale }}"> <![endif]-->
-<!--[if gt IE 9]><!--> <html lang="{{ htmlLocale }}"> <!--<![endif]-->
+<!doctype html>
+<html class="no-js lang-{{ app.request.locale }}" lang="{{ app.request.locale }}">
 <head>
+    <meta name="google-site-verification" content="uUGYD6yRKZ0dUbKmsNZBeK1Q2xj8Ch4HQal96HOkKDg" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {% include 'ZizooCmsBundle::Layout/partial/dns_prefetch.html.twig' %}
 
-    <title>
-    {% set node = null %}
-    {% if nodetranslation is defined %}
-        {% set node = nodetranslation.node %}
-    {% endif %}
-    {% set nodemenu = get_node_menu(app.request.locale, node) %}
-    {{ websitetitle | trans }}{% block title %}{% if page is defined and nodemenu.getActiveForDepth(2) is not null %} - {{ get_title_for(page) }}{% endif %}{% endblock %}
-    </title>
+    {% block rel_pagination %}{% endblock %}
 
-    {% if page is defined %}
+    {% if page is defined and page_title is not defined %}
         {{ render_seo_metadata_for(page) }}
+    {% else %}
+        {% if page_title is defined %}
+            {% set page_title_branded = page_title ~ ' | Zizoo' %}
+        {% else %}
+            {% set page_title = 'zizoo.base.tagline'|trans({}, 'metas') %}
+            {% set page_title_branded = page_title %}
+        {% endif %}
+        <title>{{ page_title_branded }}</title>
+
+        {% set page_description = page_description is defined ? page_description : 'zizoo.base.site_description'|trans({}, 'metas') %}
+        <meta name="description" content="{{ page_description }}">
+
+        {% set page_url = page_url is defined ? page_url : app.request.uri %}
+        {% set page_image_url = page_image_url is defined ? page_image_url : 'https://www.zizoo.com/images/logo/zizoo-green.png' %}
+        <meta property="og:site_name" content="zizoo.com">
+        <meta property="og:url" content="{{ page_url }}">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ page_title }}">
+        <meta property="og:description" content="{{ page_description }}">
+        <meta property="og:image" content="{{ page_image_url }}">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@Zizooboats">
+        <meta name="twitter:url" content="{{ page_url }}">
+        <meta name="twitter:title" content="{{ page_title }}">
+        <meta name="twitter:description" content="{{ page_description }}">
+        <meta name="twitter:image" content="{{ page_image_url }}">
     {% endif %}
 
-    {# Favicons #}
-    {% include '@ZizooCms/Layout/_favicons.html.twig' %}
+    <meta property="fb:app_id" content="301584113312038">
 
-    {# Webfonts #}
-    {% include 'ZizooCmsBundle:Layout:_webfonts.html.twig' %}
+    {#{% include 'ZizooUserJourneyBundle:Gtm:optimizely.html.twig' %}#}
 
-    {# CSS #}
-    {% include '@ZizooCms/Layout/_css.html.twig' %}
+    {% if (app.environment not in [ 'prod', 'dev' ])
+    or ((indexable is defined) and (indexable == false))
+    %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+
+    {% if canonical_url is defined %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+
+    {#{% block alternate_url_block %}#}
+        {#{% set alternate_urls = alternateUrlGenerator(true) %}#}
+        {#{% if alternate_urls is defined %}#}
+            {#{% for locale, url in alternate_urls %}#}
+                {#<link rel="alternate" hreflang="{{ locale }}" href="{{ url }}" />#}
+            {#{% endfor %}#}
+        {#{% endif %}#}
+    {#{% endblock %}#}
+
+    <link rel="publisher" href="https://plus.google.com/+Zizooboats">
+    {#<link rel="shortcut icon" href="{{ asset('bundles/zizoobase/images/favicon.ico') }}">#}
+
+    {% set asyncJS = asyncJS is defined ? asyncJS : true %}
+    <script>
+        var ENV = '{{ app.environment }}';
+
+        // Avoid `console` errors in browsers that lack a console.
+        (function() {
+            var method;
+            var noop = function () {};
+            var methods = [
+                'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+                'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+                'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+                'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+            ];
+            var length = methods.length;
+            var console = (window.console = window.console || {});
+
+            while (length--) {
+                method = methods[length];
+
+                // Only stub undefined methods.
+                if (!console[method]) {
+                    console[method] = noop;
+                }
+            }
+        }());
+
+        window.ajaxProcessFlag = 0;
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+        function loadAsyncScript(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        // update/append query param
+        function setQueryParam(name, value) {
+            var l = window.location;
+
+            var params = {};
+            var x = /(?:\??)([^=&?]+)=?([^&?]*)/g;
+            var s = l.search;
+            for (var r = x.exec(s); r; r = x.exec(s)) {
+                r[1] = decodeURIComponent(r[1]);
+                if (!r[2]) r[2] = '%%';
+                params[r[1]] = r[2];
+            }
+
+            params[name] = encodeURIComponent(value);
+
+            var search = [];
+            for (var i in params) {
+                var p = encodeURIComponent(i);
+                var v = params[i];
+                if (v != '%%') p += '=' + v;
+                search.push(p);
+            }
+            search = search.join('&');
+
+            l.search = search;
+        }
+
+        window.deferredClicks = {};
+        window.deferredClickListener = function(e) {
+            if (/js-[a-z]+/.test(e.target.className)) {
+                deferredClicks[e.target.className] = e.target;
+            }
+        };
+        document.addEventListener('click', deferredClickListener, false);
+
+        // Radio.js
+        (function(a,c,b){if(typeof module!=="undefined"){module.exports=b(a,c)}else{if(typeof define==="function"&&typeof define.amd==="object"){define(b)}else{c[a]=b(a,c)}}})("radio",this,function(b,c){function a(d){arguments.length?a.$.channel(d):a.$.reset();return a.$}a.$={version:"0.2",channelName:"",channels:[],reset:function(){a.$.channelName="";a.$.channels=[]},broadcast:function(){var f,j=this.channels[this.channelName].slice(),d=j.length,g,h,e;for(f=0;f<d;f++){g=j[f];if((typeof(g)==="object")&&(g.length)){h=g[0];e=g[1]||c}h.apply(e,arguments)}return this},channel:function(d){var e=this.channels;if(!e[d]){e[d]=[]}this.channelName=d;return this},subscribe:function(){var f=arguments,j=this.channels[this.channelName],g,e=f.length,h,d=[];for(g=0;g<e;g++){d=f[g];h=(typeof(d)==="function")?[d]:d;if((typeof(h)==="object")&&(h.length)){j.push(h)}}return this},unsubscribe:function(){var g=arguments,k,h,n=this.channels[this.channelName],f=g.length,e=n.length,m=0,d;for(k=0;k<f;k++){m=0;e=n.length;for(h=0;h<e;h++){d=h-m;if(n[d][0]===g[k]){n.splice(d,1);m++}}}return this}};return a});
+    </script>
+
+    {% block head_styles %}
+        {% stylesheets
+        'assets/new/vendor/normalize-css/normalize.css'
+        'assets/new/css/base.css'
+        'assets/new/css/typography.css'
+        'assets/new/css/theme.css'
+        'assets/new/css/forms.css'
+        'assets/new/css/forms2.css'
+        'assets/new/css/buttons.css'
+        'assets/new/css/lists.css'
+        'assets/new/css/tables.css'
+        'assets/new/css/grid.css'
+        'assets/new/css/components.css'
+        'assets/new/css/components/accordion.css'
+        'assets/new/css/promo-inspire-inbox.css'
+        'assets/new/css/promo-got.css'
+        'assets/new/css/promo-xmas.css'
+        'assets/new/css/utilities.css'
+        'assets/new/css/font-awesome-custom.css'
+        'assets/new/css/font-awesome-additions.css'
+        'assets/new/vendor/pickadate/lib/themes/classic.css'
+        'assets/new/vendor/pickadate/lib/themes/classic.date.css'
+        'assets/new/vendor/owlcarousel/owl-carousel/owl.carousel.css'
+        'assets/new/vendor/owlcarousel/owl-carousel/owl.transitions.css'
+        'assets/new/vendor/angular-loading-bar/build/loading-bar.css'
+        'assets/new/vendor/selectize/dist/css/selectize.css'
+        'assets/new/vendor/selectize/dist/css/selectize.default.css'
+        'assets/new/vendor/colorbox/example3/colorbox.css'
+        'assets/new/vendor/nouislider/nouislider.css'
+        'assets/new/vendor/nouislider/nouislider.tooltips.css'
+        'assets/new/css/selectboxit.css'
+        'assets/new/css/plugins.css'
+        filter='cssrewrite,?uglifycss'
+        package='zizoo'
+        %}
+        <link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+        {% endstylesheets %}
+        <!--[if gte IE 9]><style>.gradient { filter: none; }</style><![endif]-->
+    {% endblock %}
+
+    {% block head_scripts %}{% endblock %}
+
+    {% block head_analytics %}{% endblock %}
+
+    {% block datalayer %}
+        {#{% include 'ZizooUserJourneyBundle:Gtm:gtm_home_datalayer.html.twig' %}#}
+    {% endblock %}
+
+    {#{% include 'ZizooUserJourneyBundle:Elements:facebook-jssdk.html.twig' %}#}
+    {#{% include 'ZizooUserJourneyBundle:Gtm:event_tracker.html.twig' %}#}
 </head>
-{% endspaceless %}
 
-<body id="sidebar-toggle-container" class="sidebar-toggle-container{% block extra_body_classes %}{% endblock %}" {% block extra_body_attributes %}{% endblock %}>
-    {# Google Tagmanager #}
-    {% include '@ZizooCms/Layout/_googletagmanager.html.twig' %}
+<body class="{% if page_class is defined %}body-{{ page_class }}{% endif %}">
+{% if app.environment == 'prod' %}
+    {% include 'ZizooUserJourneyBundle:Gtm:google_tag_manager.html.twig' %}
+    {% include 'ZizooUserJourneyBundle:Gtm:zanox_base.html.twig' %}
+{% endif %}
 
-    {# Outdated browser message #}
-    {% include '@ZizooCms/Layout/_outdatedbrowser.html.twig' %}
+<!--[if lt IE 9]>
+<p class="browsehappy">{{ 'zizoo.base.old_ie_warning'|trans|raw }}</p>
+<![endif]-->
 
+{% block header %}
+    {% include 'ZizooCmsBundle::header.html.twig' %}
+{% endblock %}
 
-    {# Header #}
-    {% block header %}
-        {% include '@ZizooCms/Layout/_header.html.twig' %}
-    {% endblock %}
+{% block content %}{% endblock %}
 
-    {# Breadcrumbs #}
-    {% block breadcrumbs %}
-        {% include '@ZizooCms/Layout/_breadcrumbs.html.twig' %}
-    {% endblock %}
+{% block footer %}
+    {% include 'ZizooCmsBundle::footer.html.twig' %}
+    {#{% include 'ZizooUserJourneyBundle:Elements:newsletter_popup.html.twig' %}#}
+{% endblock %}
 
-    {# Content #}
-    <main role="main">
-        {% block content %}{% endblock %}
-    </main>
+{% block foot_scripts %}
+    {% javascripts
+    'assets/new/vendor/jquery/dist/jquery.js'
+    'assets/new/vendor/bootstrap/js/transition.js'
+    'assets/new/vendor/bootstrap/js/modal.js'
+    'assets/new/vendor/bootstrap/js/tooltip.js'
+    'assets/new/vendor/bootstrap/js/popover.js'
+    'assets/new/vendor/bootstrap/js/dropdown.js'
+    'assets/new/vendor/bootstrap-multiselect/dist/js/bootstrap-multiselect.js'
+    'assets/new/vendor/jquery-unveil/jquery.unveil.js'
+    'assets/new/vendor/pickadate/lib/picker.js'
+    'assets/new/vendor/pickadate/lib/picker.date.js'
+    'assets/new/vendor/owlcarousel/owl-carousel/owl.carousel.js'
+    'assets/new/vendor/selectize/dist/js/standalone/selectize.js'
+    'assets/new/vendor/colorbox/jquery.colorbox.js'
+    'assets/new/vendor/nouislider/wnumb.js'
+    'assets/new/vendor/nouislider/nouislider.js'
+    'assets/new/js/device.js'
+    'assets/new/js/headerMenu.js'
+    'assets/new/js/wishlist.js'
+    'assets/new/js/autocomplete.js'
+    'assets/new/js/multiselect.js'
+    'assets/new/js/mobileType.js'
+    'assets/new/js/toggleClass.js'
+    'assets/new/js/fbPage.js'
+    'assets/new/js/dateRange.js'
+    'assets/new/js/ajaxify.js'
+    'assets/new/js/rangeSlider.js'
+    'assets/new/js/searchSwitcher.js'
+    'assets/new/js/carousel.js'
+    'assets/new/js/carouselNav.js'
+    'assets/new/js/imageGallery.js'
+    'assets/new/js/map.js'
+    'assets/new/js/expandable.js'
+    'assets/new/js/accordion.js'
+    'assets/new/js/appendMore.js'
+    'assets/new/js/destinations.js'
+    'assets/new/js/apiForm.js'
+    'assets/new/js/newsletterPopup.js'
+    'assets/new/js/tooltip.js'
+    'assets/new/js/base.js'
+    'assets/new/js/scroll-depth.js'
+    'assets/new/js/ecommerceProduct.js'
+    'assets/new/js/loadEventTrigger.js'
+    'assets/new/js/adWordsGclid.js'
+    filter='?uglifyjs2'
+    %}
+    <script src="{{ asset(asset_url) }}"{{ app.environment == 'prod' and asyncJS ? ' async': '' }}></script>
+    {% endjavascripts %}
+{% endblock %}
 
-    {# Footer #}
-    {% block footer %}
-        {% include '@ZizooCms/Layout/_footer.html.twig' %}
-    {% endblock %}
-
-
-    {# Cookieconsent #}
-    {% block cookieconsent %}
-        {% include '@ZizooCms/Layout/_cookieconsent.html.twig' %}
-    {% endblock %}
-
-    {# JS Footer #}
-    {% include '@ZizooCms/Layout/_js_footer.html.twig' %}
 </body>
 </html>
