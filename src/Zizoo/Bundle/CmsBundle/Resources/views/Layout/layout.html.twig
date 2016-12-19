@@ -172,6 +172,8 @@
         'assets/new/vendor/nouislider/nouislider.tooltips.css'
         'assets/new/css/selectboxit.css'
         'assets/new/css/plugins.css'
+        'assets/new/css/components/pageparts/video-pp.css'
+        'assets/new/css/components/pageparts/contact-pp.css'
         filter='cssrewrite,?uglifycss'
         package='zizoo'
         %}
@@ -258,6 +260,7 @@
     'assets/new/js/ecommerceProduct.js'
     'assets/new/js/loadEventTrigger.js'
     'assets/new/js/adWordsGclid.js'
+    'assets/new/js/contactForm.js'
     filter='?uglifyjs2'
     %}
     <script src="{{ asset(asset_url) }}"{{ app.environment == 'prod' and asyncJS ? ' async': '' }}></script>
