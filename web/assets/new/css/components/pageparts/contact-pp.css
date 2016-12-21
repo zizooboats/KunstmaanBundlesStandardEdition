@@ -2,6 +2,7 @@
 	max-width: 600px;
 	text-align: center;
 	margin: 20px auto;
+	min-width: 165px;
 }
 .cf input,
 .cf textarea,
@@ -55,12 +56,12 @@
 .left {
 	margin-right: 2%;
 }
-/*.cf:before,*/
-/*.cf:after {*/
-	/*content: " ";*/
-	/*display: table;*/
-/*}*/
+.cf:before,
+.cf:after {
+	content: " ";
+	display: table;
+}
 
-/*.cf:after {*/
-	/*clear: both;*/
-/*}*/
+.cf:after {
+	clear: both;
+}

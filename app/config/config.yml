@@ -104,6 +104,11 @@ liip_imagine:
     driver: imagick
     data_loader: default
     filter_sets:
+        donwloadpagepart_thumbnail:
+            quality : 75
+            filters :
+                thumbnail  : { size : [120, 90] }
+                background : { size : [122, 92], position : center, color : '#dcdcdc' }
         optim:
             quality: 85
             format: jpg

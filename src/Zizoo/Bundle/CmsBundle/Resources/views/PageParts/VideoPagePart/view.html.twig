@@ -29,3 +29,13 @@
         {% endif %}
     </div>
 {% endif %}
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/video-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

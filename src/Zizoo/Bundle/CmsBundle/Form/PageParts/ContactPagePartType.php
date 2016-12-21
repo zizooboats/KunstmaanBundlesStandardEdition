@@ -12,12 +12,22 @@
     use Symfony\Component\Form\AbstractType;
     use Symfony\Component\Form\FormBuilderInterface;
     use Symfony\Component\OptionsResolver\OptionsResolver;
+    use Symfony\Component\Translation\TranslatorInterface;
 
     class ContactPagePartType extends AbstractType
     {
+        /** @var  string $emailTo */
         private $emailTo;
+
+        /** @var  string $subject */
         private $subject;
 
+        /**
+         * ContactPagePartType constructor.
+         *
+         * @param string $emailTo
+         * @param string $subject
+         */
         public function __construct ($emailTo, $subject)
         {
             $this->emailTo = $emailTo;
@@ -44,18 +54,12 @@
                     array(
                         'required' => true,
                         'mapped' => false,
-                        'attr' => array(
-                            'placeholder' => 'Your Name'
-                        )
                     )
                 )
                 ->add('email_from', 'email',
                     array(
                         'required' => true,
                         'mapped' => false,
-                        'attr' => array(
-                            'placeholder' => 'E-mail'
-                        ),
                     )
                 )
                 ->add('country', 'country',
@@ -69,18 +73,12 @@
                     array(
                         'required' => false,
                         'mapped' => false,
-                        'attr' => array(
-                            'placeholder' => 'Phone number'
-                        )
                     )
                 )
                 ->add('message', 'textarea',
                     array(
                         'required' => true,
                         'mapped' => false,
-                        'attr' => array(
-                            'placeholder' => 'Your message'
-                        )
                     )
                 )
                 ->add('email_to', 'hidden',
@@ -94,7 +92,8 @@
                     )
                 )
                 ->add('send', 'submit', array(
-                        'label' => 'Send message',
+                        'label' => 'zizoo_cms_bundle.contactpagepart.send_message',
+                        'translation_domain' => 'messages',
                         'attr' => array(
                             'class' => 'contact-submit'
                         )

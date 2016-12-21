@@ -27,7 +27,9 @@
          */
         public function getContactFromAction($emailTo, $subject)
         {
-            $form = $this->createForm(new ContactPagePartType($emailTo, $subject), null,
+            $form = $this->createForm(
+                new ContactPagePartType($emailTo, $subject),
+                null,
                 array(
                     'action' => $this->generateUrl('zizoocmsbundle_contact_post_form'),
                     'mapped' => false
@@ -60,7 +62,7 @@
 
             return new JsonResponse(
                 array(
-                    'data' => 'Your contact enquiry was successfully sent. Thank you!'
+                    'data' => $this->get('translator')->trans('zizoo_cms_bundle.contactpagepart.confirmation_message')
                 )
             );
         }

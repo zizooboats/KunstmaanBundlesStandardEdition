@@ -24,9 +24,15 @@ class DownloadPagePartAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-	$builder->add('media', MediaType::class, array(
-	    'label' => 'mediapagepart.download.choosefile'
-	));
+        $builder->add('media', MediaType::class, array(
+            'label' => 'mediapagepart.download.choosefile',
+            'required' => true,
+        ));
+        $builder->add('thumbnail', MediaType::class, array(
+            'mediatype' => 'image',
+            'required' => false,
+            'label' => 'zizoo_cms_bundle.downloadpagepart.thumbnail'
+        )); 
     }
 
     /**

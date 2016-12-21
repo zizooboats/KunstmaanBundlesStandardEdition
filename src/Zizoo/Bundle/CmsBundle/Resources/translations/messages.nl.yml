@@ -1,0 +1,11 @@
+zizoo_cms_bundle:
+    downloadpagepart:
+        thumbnail: "Thumbnail"
+
+    contactpagepart:
+        your_name: "Your name"
+        email: "E-mail"
+        phone_number: "Phone number"
+        your_message: "Your message"
+        send_message: "Send message"
+        confirmation_message: "Your contact enquiry was successfully sent. Thank you!"
