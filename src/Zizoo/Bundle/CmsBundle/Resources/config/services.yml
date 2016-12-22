@@ -1,2 +1,11 @@
 services:
+    zizoo_cms_bundle.form.type.contact:
+        class: Zizoo\Bundle\CmsBundle\Form\PageParts\ContactPagePartType
+        tags:
+            - { name: form.type, alias: "contactpageparttype" }
+
+    zizoo_cms_bundle.service.contact:
+        class: Zizoo\Bundle\CmsBundle\Service\ContactService
+        arguments: ['@service_container']
+
 

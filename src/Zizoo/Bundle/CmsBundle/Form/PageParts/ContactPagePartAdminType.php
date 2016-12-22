@@ -4,14 +4,14 @@ namespace Zizoo\Bundle\CmsBundle\Form\PageParts;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\AbstractType;
-use Kunstmaan\MediaBundle\Form\Type\MediaType;
+use Kunstmaan\MediaBundle\Validator\Constraints as Assert;
 
 /**
- * DownloadPagePartAdminType
+ * ContactPagePartAdminType
  */
-class DownloadPagePartAdminType extends AbstractType
+class ContactPagePartAdminType extends \Symfony\Component\Form\AbstractType
 {
+
     /**
      * Builds the form.
      *
@@ -24,15 +24,13 @@ class DownloadPagePartAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('media', MediaType::class, array(
-            'label' => 'mediapagepart.download.choosefile',
-            'required' => true,
-        ));
-        $builder->add('thumbnail', MediaType::class, array(
-            'mediatype' => 'image',
+        parent::buildForm($builder, $options);
+        $builder->add('email', 'Symfony\Component\Form\Extension\Core\Type\TextType', array(
             'required' => false,
-            'label' => 'zizoo_cms_bundle.downloadpagepart.thumbnail'
-        )); 
+        ));
+        $builder->add('subject', 'Symfony\Component\Form\Extension\Core\Type\TextType', array(
+            'required' => false,
+        ));
     }
 
     /**
@@ -42,7 +40,7 @@ class DownloadPagePartAdminType extends AbstractType
      */
     public function getBlockPrefix()
     {
-	return 'downloadpageparttype';
+        return 'contactpagepartadmintype';
     }
 
     /**
@@ -52,8 +50,8 @@ class DownloadPagePartAdminType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-	$resolver->setDefaults(array(
-	    'data_class' => 'Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart',
-	));
+        $resolver->setDefaults(array(
+            'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\ContactPagePart'
+        ));
     }
 }

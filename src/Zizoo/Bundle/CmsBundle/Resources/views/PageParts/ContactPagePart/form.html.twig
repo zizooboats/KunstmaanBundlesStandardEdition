@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+	{{ form_row(form._token) }}
+	<div class="wrapper">
+		<div class="half left cf">
+				{{ form_widget(form.name, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.your_name'|trans }}) }}
+				{{ form_widget(form.country) }}
+		</div>
+		<div class="half right cf">
+			{{ form_widget(form.email_from, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.email'|trans }}) }}
+			{{ form_widget(form.phone_number, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.phone_number'|trans }}) }}
+		</div>
+		<div class="cf">
+			{{ form_widget(form.message, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.your_message'|trans }}) }}
+		</div>
+		{{ form_rest(form) }}
+		{{ form_widget(form.send, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.send_message'|trans }}) }}
+	</div>
+{{ form_end(form) }}
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/contact-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

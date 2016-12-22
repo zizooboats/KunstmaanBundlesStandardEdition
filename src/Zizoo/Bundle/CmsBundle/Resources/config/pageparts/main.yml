@@ -3,6 +3,7 @@ context: main
 types:
     - { name: Audio, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\AudioPagePart }
     - { name: Button, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ButtonPagePart }
+    - { name: Contact, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ContactPagePart }
     - { name: Download, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart }
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }

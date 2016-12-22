@@ -1,0 +1,13 @@
+.wrapper {
+	overflow:hidden;
+}
+
+.wrapper div {
+	padding: 10px;
+}
+.wrapper .download-pp-thumbnail {
+	float:left;
+}
+.wrapper .download-pp-file {
+	overflow:hidden;
+}

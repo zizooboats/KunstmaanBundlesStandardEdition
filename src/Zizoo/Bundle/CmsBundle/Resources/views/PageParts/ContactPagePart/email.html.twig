@@ -1,0 +1,9 @@
+Name: {{ name }}
+<br>
+{% if phone_number is defined and phone_number|trim != ''  %}
+	Phone number: {{ phone_number }}
+	<br>
+{% endif %}
+Country: {{ country }} {{ country_code }}
+<br><br>
+{{ message }}
