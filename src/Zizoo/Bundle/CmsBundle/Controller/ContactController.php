@@ -27,6 +27,13 @@
          */
         public function getContactFromAction($emailTo, $subject)
         {
+            /** @var Request $request */
+            $request = $this->get('request_stack')->getMasterRequest();
+
+            if(strpos($request->getUri(), 'admin') !== false) {
+                return $this->render('ZizooCmsBundle:PageParts/ContactPagePart:form.html.twig',array());
+            }
+
             $form = $this->createForm(
                 new ContactPagePartType($emailTo, $subject),
                 null,

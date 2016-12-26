@@ -9,3 +9,4 @@ zizoo_cms_bundle:
         your_message: "Your message"
         send_message: "Send message"
         confirmation_message: "Your contact enquiry was successfully sent. Thank you!"
+        contact_form: "Contact form"
