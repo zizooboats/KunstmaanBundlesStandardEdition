@@ -1,0 +1,58 @@
+{% macro addMapRouteLocationInputs(pagePartId, dayNumberFormView, regionFormView) %}
+	<div class="{{ pagePartId }}_map_route_location_form_container map_route_location_form_container">
+		{{ form_widget(dayNumberFormView) }}
+		<label id="{{ pagePartId }}_day_number_0dn">0dn.</label>
+		{{ form_label(regionFormView) }}
+		<button class="delete_map_route_location"
+		        value="{{ 'zizoo_cms_bundle.mappagepart.delete_map_route_location'|trans }}"
+		>
+			<i class="fa fa-minus"></i>
+		</button>
+		<div>
+			{{ form_widget(regionFormView) }}
+		</div>
+	</div>
+{% endmacro %}
+{% import _self as mrl_form %}
+
+<div>
+	<div class="map_route_locations">
+		<div>
+			{{ form_label(form.mapRoute.mapRouteLocations) }}
+			<button
+				id="{{ pagepartid }}_add_new_map_route_location"
+				class="add_new_map_route_location"
+				value="{{ 'zizoo_cms_bundle.mappagepart.add_new_map_route_location'|trans }}"
+			>
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
+		<div id="{{ pagepartid }}_map_route_location_forms_container">
+			{% set dayNumber = 0 %}
+			{% for formViewMapRouteLocation in form.mapRoute.mapRouteLocations %}
+				{% set dayNumber = formViewMapRouteLocation.dayNumber.vars.value %}
+				<div class="{{ pagepartid }}_map_route_location_form_container map_route_location_form_container">
+					{{ form_widget(formViewMapRouteLocation.id) }}
+					{{ form_widget(formViewMapRouteLocation.dayNumber) }}
+					<label id="{{ pagepartid }}_day_number_{{ dayNumber }}">
+						{{ dayNumber }}.
+					</label>
+					{{ form_label(formViewMapRouteLocation.region) }}
+					<button class="delete_map_route_location"
+					        value="{{ 'zizoo_cms_bundle.mappagepart.delete_map_route_location'|trans }}"
+					>
+						<i class="fa fa-minus"></i>
+					</button>
+					<div>
+						{{ form_widget(formViewMapRouteLocation.region) }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<script type="application/javascript">
+	var dayNumber_{{ pagepartid }} = parseInt({{ dayNumber }}) + 1;
+	var mapRouteLocationFormTemplate_{{ pagepartid }} = "{{ mrl_form.addMapRouteLocationInputs(pagepartid, form.mapRoute.children.mapRouteLocations.vars.prototype.children.dayNumber, form.mapRoute.children.mapRouteLocations.vars.prototype.children.region)|e('js') }}";
+</script>

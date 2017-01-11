@@ -23,6 +23,7 @@ twig:
         defaultlocale: %defaultlocale%
         requiredlocales: %requiredlocales%
         gtm_code: %analytics.googletagmanager%
+        google_api_key: %google.api.dev_key%
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
@@ -232,3 +233,11 @@ ekino_new_relic:
     log_commands:   true
     transaction_naming: service
     transaction_naming_service: kunstmaan_newrelic_naming_strategy
+
+knp_doctrine_behaviors:
+    blameable:      false
+    geocodable:     false     # Here null is converted to false
+    loggable:       false
+    sluggable:      false
+    soft_deletable: false
+    translatable:   true

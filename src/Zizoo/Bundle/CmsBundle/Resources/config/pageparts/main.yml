@@ -10,6 +10,7 @@ types:
     - { name: IntroText, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IntroTextPagePart }
     - { name: Line, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinePagePart }
     - { name: Link, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinkPagePart }
+    - { name: Map, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart }
     - { name: RawHtml, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\RawHtmlPagePart }
     - { name: Text, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TextPagePart }
     - { name: Toc, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TocPagePart }

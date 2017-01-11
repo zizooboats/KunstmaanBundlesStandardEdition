@@ -7,5 +7,3 @@ services:
     zizoo_cms_bundle.service.contact:
         class: Zizoo\Bundle\CmsBundle\Service\ContactService
         arguments: ['@service_container']
-
-

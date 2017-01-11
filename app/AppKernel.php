@@ -46,6 +46,7 @@ class AppKernel extends Kernel
             new Kunstmaan\DashboardBundle\KunstmaanDashboardBundle(),
             //new Kunstmaan\LeadGenerationBundle\KunstmaanLeadGenerationBundle(),
             new Zizoo\Bundle\CmsBundle\ZizooCmsBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev'), true)) {

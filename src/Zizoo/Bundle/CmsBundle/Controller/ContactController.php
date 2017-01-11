@@ -30,8 +30,9 @@
             /** @var Request $request */
             $request = $this->get('request_stack')->getMasterRequest();
 
+            $admin = false;
             if(strpos($request->getUri(), 'admin') !== false) {
-                return $this->render('ZizooCmsBundle:PageParts/ContactPagePart:form.html.twig',array());
+                $admin = true;
             }
 
             $form = $this->createForm(
@@ -45,6 +46,7 @@
 
             return $this->render('ZizooCmsBundle:PageParts/ContactPagePart:form.html.twig',
                 array(
+                    'admin' => $admin,
                     'form' => $form->createView()
                 )
             );

@@ -1,5 +1,7 @@
 {% if form is defined %}
-	{{ form_start(form) }}
+	{% if admin == false %}
+		{{ form_start(form) }}
+	{% endif %}
 		{{ form_row(form._token) }}
 		<div class="wrapper">
 			<div class="half left cf">
@@ -16,7 +18,10 @@
 			{{ form_rest(form) }}
 			{{ form_widget(form.send, { 'attr': { 'placeholder': 'zizoo_cms_bundle.contactpagepart.send_message'|trans }}) }}
 		</div>
-	{{ form_end(form) }}
+	{% if admin == false %}
+		{{ form_end(form) }}
+	{% endif %}
+
 
 	{% block head_styles %}
 		{% stylesheets

@@ -1,0 +1,7 @@
+{% javascripts
+	'assets/new/js/mapPagePartAdmin.js'
+	'assets/new/js/mapPagePart.js'
+	filter='?uglifyjs2'
+%}
+<script src="{{ asset(asset_url) }}"{{ app.environment == 'prod' and asyncJS ? ' async': '' }}></script>
+{% endjavascripts %}
