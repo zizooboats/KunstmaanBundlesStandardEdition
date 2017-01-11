@@ -15,4 +15,5 @@ types:
     - { name: Text, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TextPagePart }
     - { name: Toc, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TocPagePart }
     - { name: ToTop, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ToTopPagePart }
+    - { name: Trustpilot, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TrustpilotPagePart }
     - { name: Video, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\VideoPagePart }
