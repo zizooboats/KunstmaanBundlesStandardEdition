@@ -1,0 +1,11 @@
+.featured-partners-pp {
+	max-width: 950px;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	position: relative;
+}
+
+.featured-partners-pp img {
+	display: inline-block;
+}

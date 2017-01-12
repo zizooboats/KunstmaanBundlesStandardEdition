@@ -14,3 +14,6 @@ zizoo_cms_bundle:
 
     mappagepart:
         map_route_locations: "Map route locations:"
+
+    featuredpartnerspagepart:
+        featured_partner_logo: "Featured Partners"

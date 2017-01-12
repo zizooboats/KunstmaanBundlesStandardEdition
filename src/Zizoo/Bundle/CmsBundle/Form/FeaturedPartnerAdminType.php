@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MapRouteLocationAdminType extends AbstractType
+class FeaturedPartnerAdminType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -14,7 +14,7 @@ class MapRouteLocationAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('region');
+        $builder->add('logo', 'Kunstmaan\MediaBundle\Form\Type\MediaType');
     }
     
     /**
@@ -23,7 +23,7 @@ class MapRouteLocationAdminType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Zizoo\Bundle\CmsBundle\Entity\MapRouteLocation'
+            'data_class' => 'Zizoo\Bundle\CmsBundle\Entity\FeaturedPartner'
         ));
     }
 
@@ -32,6 +32,6 @@ class MapRouteLocationAdminType extends AbstractType
      */
     public function getName()
     {
-        return 'maproutelocationtype';
+        return 'featuredpartnertype';
     }
 }

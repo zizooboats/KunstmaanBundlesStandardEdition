@@ -17,15 +17,13 @@
     <p class="download-pp">
         <a download href="{{ mediaUrl }}" class="download">
 	        <div class="wrapper">
-		        <div class="download-pp-thumbnail">{% if thumbnailUrl is defined%}<img src="{{ thumbnailUrl | imagine_filter('donwloadpagepart_thumbnail') }}" alt="thumbnail"/>{% endif %}</div>
+		        <div class="download-pp-thumbnail">{% if thumbnailUrl is defined%}<img src="{{ thumbnailUrl | imagine_filter('downloadpagepart_thumbnail') }}" alt="thumbnail"/>{% endif %}</div>
 		        <div class="download-pp-file">
 			        <div>{{name}}</div>
 			        <div><span>{% if date is not empty %}{{ date }}{% endif %}</span></div>
 		        </div>
 	        </div>
         </a>
-
-        {#<span>| {{ resource.media.contentTypeShort }} {{ resource.media.getFileSize() }}</span>#}
     </p>
 {% endif %}
 

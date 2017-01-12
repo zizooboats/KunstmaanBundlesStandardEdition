@@ -1,7 +1,7 @@
 <div id="{{ resource.id }}-map-pp" class="map-pp">
-    {% if resource.mapRoute is not empty %}
-	    <div id="{{ resource.id }}-map-container" class="map-pp-map-container"></div>
-    {% endif %}
+	{% if resource.mapRouteLocations is not empty %}
+		<div id="{{ resource.id }}-map-container" class="map-pp-map-container"></div>
+	{% endif %}
 </div>
 
 {% block head_styles %}
@@ -16,15 +16,14 @@
 
 <script>
 	var googleApiKey = '{{ google_api_key }}'
-	{% if resource.mapRoute is not empty %}
+	{% if resource.mapRouteLocations is not empty %}
 		var mapRouteLocations_{{ resource.id }} = {
-			{% if resource.mapRoute.mapRouteLocations|length > 0 %}
-				{% set counter = resource.mapRoute.mapRouteLocations|length %}
-				{% for mapRouteLocation in resource.mapRoute.mapRouteLocations %}
-					{{ mapRouteLocation.dayNumber }} : { lat: {{ mapRouteLocation.region.lat }}, lng: {{ mapRouteLocation.region.lng }} }
-					{% if counter > 1 %}
-						,
-					{% endif %}
+			{% if resource.mapRouteLocations|length > 0 %}
+				{% set counter = resource.mapRouteLocations|length %}
+				{% for index, mapRouteLocation in resource.mapRouteLocations %}
+					{{ index + 1 }} : { lat: {{ mapRouteLocation.region.lat }}, lng: {{ mapRouteLocation.region.lng }} }
+					{% if counter > 1 %}, {% endif %}
+					{% set counter = counter - 1 %}
 				{% endfor %}
 			{% endif %}
 		};

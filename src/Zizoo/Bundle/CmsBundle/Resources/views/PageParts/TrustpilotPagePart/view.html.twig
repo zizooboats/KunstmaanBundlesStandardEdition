@@ -9,3 +9,13 @@
 	<a href="https://uk.trustpilot.com/review/zizoo.com" target="_blank">Trustpilot</a>
 </div>
 <!-- End TrustBox widget -->
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/trustpilot-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

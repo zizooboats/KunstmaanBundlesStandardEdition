@@ -2,20 +2,17 @@
 
 namespace Zizoo\Bundle\CmsBundle\Form\PageParts;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Kunstmaan\MediaBundle\Entity\Media;
+use Kunstmaan\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
 use Kunstmaan\MediaBundle\Validator\Constraints as Assert;
-use Zizoo\Bundle\CmsBundle\Form\MapRouteAdminType;
-use Zizoo\Bundle\CmsBundle\Form\MapRouteLocationAdminType;
-use Zizoo\Bundle\CmsBundle\Form\RouteLocationType;
+use Zizoo\Bundle\CmsBundle\Form\FeaturedPartnerAdminType;
 
 /**
- * MapPagePartAdminType
+ * FeaturedPartnersPagePartAdminType
  */
-class MapPagePartAdminType extends AbstractType
+class FeaturedPartnersPagePartAdminType extends \Symfony\Component\Form\AbstractType
 {
 
     /**
@@ -31,13 +28,14 @@ class MapPagePartAdminType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+
         $builder
-            ->add('mapRouteLocations', 'Symfony\Component\Form\Extension\Core\Type\CollectionType', array(
-                    'entry_type' => new MapRouteLocationAdminType(),
+            ->add('featuredPartners', 'Symfony\Component\Form\Extension\Core\Type\CollectionType', array(
+                    'entry_type' => new FeaturedPartnerAdminType(),
                     'allow_add' => true,
                     'allow_delete' => true,
                     'by_reference' => false,
-                    'label' => 'zizoo_cms_bundle.mappagepart.map_route_locations',
+                    'label' => 'zizoo_cms_bundle.featuredpartnerspagepart.featured_partner_logo',
                     'cascade_validation' => true,
                     'attr' => array(
                         'nested_form' => true,
@@ -55,7 +53,7 @@ class MapPagePartAdminType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mappageparttype';
+        return 'featuredpartnerspageparttype';
     }
 
     /**
@@ -66,7 +64,7 @@ class MapPagePartAdminType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart',
+            'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart',
             'cascade_validation' => true,
         ));
     }

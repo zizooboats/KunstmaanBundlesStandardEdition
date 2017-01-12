@@ -1,0 +1,18 @@
+<div class="featured-partners-pp">
+    {% if resource.featuredPartners is not empty %}
+        {% for featuredPartner in resource.featuredPartners %}
+	        {% set logoUrl = asset(featuredPartner.logo.url) %}
+	        <img src="{{ logoUrl | imagine_filter('featuredpartnerspagepart_logo') }}" alt="featured partner logo"/>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+		'assets/new/css/components/pageparts/featured-partners-pp.css'
+		filter='cssrewrite,?uglifycss'
+		package='zizoo'
+	%}
+		<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

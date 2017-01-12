@@ -2,9 +2,10 @@
 
 namespace Zizoo\Bundle\CmsBundle\Entity\PageParts;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Zizoo\Bundle\CmsBundle\Entity\MapRoute;
 use Symfony\Component\Validator\Constraints as Assert;
+use Zizoo\Bundle\CmsBundle\Entity\MapRouteLocation;
 
 /**
  * MapPagePart
@@ -16,33 +17,90 @@ class MapPagePart extends AbstractPagePart
 {
 
     /**
-     * @var MapRoute
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @Assert\Valid
      *
-     * @ORM\ManyToOne(targetEntity="Zizoo\Bundle\CmsBundle\Entity\MapRoute", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="map_route_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Assert\Count(
+     *      min = "1",
+     *      minMessage = "You must specify at least one map route location",
+     * )
+     *
+     * @ORM\OneToMany(targetEntity="Zizoo\Bundle\CmsBundle\Entity\MapRouteLocation", mappedBy="mapPagePart", cascade={"persist"})
+     *
      */
-    protected $mapRoute;
+    protected $mapRouteLocations;
 
     /**
-     * @return MapRoute
+     * Constructor
      */
-    public function getMapRoute()
+    public function __construct()
     {
-        return $this->mapRoute;
+        $this->mapRouteLocations = new ArrayCollection();
     }
 
     /**
-     * @param MapRoute $mapRoute
+     * Add map route location
+     *
+     * @param MapRouteLocation $mapRouteLocation
      *
      * @return MapPagePart
      */
-    public function setMapRoute(MapRoute $mapRoute)
+    public function addMapRouteLocation(MapRouteLocation $mapRouteLocation)
     {
-        $this->mapRoute = $mapRoute;
+        $mapRouteLocation->setMapPagePart($this);
+
+        $this->mapRouteLocations->add($mapRouteLocation);
 
         return $this;
+    }
+
+    /**
+     * Remove map route location
+     *
+     * @param MapRouteLocation $mapRouteLocation
+     *
+     * @return MapPagePart
+     */
+    public function removeMapRouteLocation(MapRouteLocation $mapRouteLocation)
+    {
+        $this->mapRouteLocations->removeElement($mapRouteLocation);
+        return $this;
+    }
+
+    /**
+     * Get map route locations
+     *
+     * @return ArrayCollection
+     */
+    public function getMapRouteLocations()
+    {
+        return $this->mapRouteLocations;
+    }
+
+    /**
+     * Set map route locations
+     *
+     * @return MapPagePart
+     */
+    public function setMapRouteLocations($mapRouteLocations)
+    {
+        $this->mapRouteLocations = $mapRouteLocations;
+
+        return $this;
+    }
+
+    /**
+     * When cloning this entity, we must also clone all entities in the ArrayCollection
+     */
+    public function deepClone()
+    {
+        $mapRouteLocations = $this->mapRouteLocations;
+        $this->mapRouteLocations = new ArrayCollection();
+        foreach ($mapRouteLocations as $mapRouteLocation) {
+            $cloneMapRouteLocation = clone $mapRouteLocation;
+            $this->addMapRouteLocation($cloneMapRouteLocation);
+        }
     }
 
 
@@ -64,11 +122,5 @@ class MapPagePart extends AbstractPagePart
     public function getDefaultAdminType()
     {
         return new \Zizoo\Bundle\CmsBundle\Form\PageParts\MapPagePartAdminType();
-    }
-
-
-    public function getEditTemplate()
-    {
-        return 'ZizooCmsBundle:PageParts:MapPagePart/mappagepart_admin_edit.html.twig';
     }
 }

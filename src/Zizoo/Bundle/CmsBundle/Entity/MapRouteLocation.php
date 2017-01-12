@@ -5,6 +5,7 @@ namespace Zizoo\Bundle\CmsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Kunstmaan\AdminBundle\Entity\AbstractEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart;
 
 /**
  * MapRouteLocation
@@ -15,55 +16,28 @@ use Symfony\Component\Validator\Constraints as Assert;
 class MapRouteLocation extends AbstractEntity
 {
     /**
-     * @var integer
-     *
-     * @Assert\Type(
-     *     type="integer",
-     *     message="The value {{ value }} is not a valid {{ type }} for map route location day number."
-     * )
-     *
-     *  @Assert\Range(
-     *      min = 1,
-     *      minMessage = "Map route location day number is integer and must be greater then {{ limit }}",
-     * )
-     *
-     * @ORM\Column(name="day_number", type="integer")
-     */
-    protected $dayNumber;
-
-
-    /**
-     * Set dayNumber
-     *
-     * @param integer $dayNumber
-     *
-     * @return MapRouteLocation
-     */
-    public function setDayNumber($dayNumber)
-    {
-        $this->dayNumber = $dayNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get dayNumber
-     *
-     * @return integer
-     */
-    public function getDayNumber()
-    {
-        return $this->dayNumber;
-    }
-
-
-    /**
      * @var Region
      *
+     * @Assert\NotBlank(
+     *      message = "Region must be set",
+     * )
+     *
      * @ORM\ManyToOne(targetEntity="Region")
-     * @ORM\JoinColumn(name="region_id", referencedColumnName="id", unique=false, nullable=false)
+     * @ORM\JoinColumn(name="region_id", referencedColumnName="id", unique=false, nullable=false, onDelete="CASCADE")
      */
     protected $region;
+
+    /**
+     * @var MapPagePart
+     *
+     * @Assert\NotBlank(
+     *      message = "Map page part must be set",
+     * )
+     *
+     * @ORM\ManyToOne(targetEntity="Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart", inversedBy="mapRouteLocations")
+     * @ORM\JoinColumn(name="map_pp_id", referencedColumnName="id", onDelete="CASCADE")
+     **/
+    protected $mapPagePart;
 
 
     /**
@@ -84,6 +58,26 @@ class MapRouteLocation extends AbstractEntity
     public function setRegion(Region $region)
     {
         $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * @return MapPagePart
+     */
+    public function getMapPagePart()
+    {
+        return $this->mapPagePart;
+    }
+
+    /**
+     * @param MapPagePart $mapPagePart
+     *
+     * @return MapRouteLocation
+     */
+    public function setMapPagePart(MapPagePart $mapPagePart)
+    {
+        $this->mapPagePart = $mapPagePart;
 
         return $this;
     }
