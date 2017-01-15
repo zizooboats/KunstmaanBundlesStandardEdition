@@ -1,5 +1,5 @@
 {% if resource.video is defined and resource.video %}
-    <div class="video-pp">
+    <div class="video-pp wrapper wrapper--wide">
 
         {% if resource.thumbnail is not empty %}
             {% set videoImage = asset(resource.thumbnail.url|imagine_filter('optim')) %}

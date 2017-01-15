@@ -8,6 +8,7 @@ types:
     - { name: Featured Partners, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart }
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }
+    - { name: Icon Bullet Point, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart }
     - { name: IntroText, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IntroTextPagePart }
     - { name: Line, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinePagePart }
     - { name: Link, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinkPagePart }

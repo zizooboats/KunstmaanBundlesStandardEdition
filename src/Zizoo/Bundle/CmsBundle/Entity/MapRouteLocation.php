@@ -35,7 +35,7 @@ class MapRouteLocation extends AbstractEntity
      * )
      *
      * @ORM\ManyToOne(targetEntity="Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart", inversedBy="mapRouteLocations")
-     * @ORM\JoinColumn(name="map_pp_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="map_pp_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      **/
     protected $mapPagePart;
 

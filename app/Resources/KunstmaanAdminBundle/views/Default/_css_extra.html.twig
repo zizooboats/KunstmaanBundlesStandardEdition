@@ -1,0 +1,9 @@
+	{% stylesheets
+	'assets/new/css/grid.css'
+	'assets/new/css/components.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+	<!--[if gte IE 9]><style>.gradient { filter: none; }</style><![endif]-->

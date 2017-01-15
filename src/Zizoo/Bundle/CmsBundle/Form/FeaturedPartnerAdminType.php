@@ -14,7 +14,10 @@ class FeaturedPartnerAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('logo', 'Kunstmaan\MediaBundle\Form\Type\MediaType');
+        $builder->add('logo', 'Kunstmaan\MediaBundle\Form\Type\MediaType', array(
+            'mediatype' => 'image',
+            'required' => true,
+        ));
     }
     
     /**

@@ -5,17 +5,7 @@
 {% endblock %}
 
 <!-- TrustBox widget -->
-<div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8912dec7e10d38f59f36" data-businessunit-id="53a837e0000064000578f8ba" data-style-height="130px" data-style-width="100%" data-theme="light" data-stars="4,5">
+<div class="trustpilot-widget wrapper wrapper--wide" data-locale="en-GB" data-template-id="53aa8912dec7e10d38f59f36" data-businessunit-id="53a837e0000064000578f8ba" data-style-height="130px" data-style-width="100%" data-theme="light" data-stars="4,5">
 	<a href="https://uk.trustpilot.com/review/zizoo.com" target="_blank">Trustpilot</a>
 </div>
 <!-- End TrustBox widget -->
-
-{% block head_styles %}
-	{% stylesheets
-	'assets/new/css/components/pageparts/trustpilot-pp.css'
-	filter='cssrewrite,?uglifycss'
-	package='zizoo'
-	%}
-	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
-	{% endstylesheets %}
-{% endblock %}

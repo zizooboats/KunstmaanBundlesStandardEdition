@@ -3,9 +3,11 @@
 namespace Zizoo\Bundle\CmsBundle\Entity\PageParts;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Zizoo\Bundle\CmsBundle\Entity\FeaturedPartner;
+use Zizoo\Bundle\CmsBundle\Form\PageParts\FeaturedPartnersPagePartAdminType;
 
 /**
  * FeaturedPartnersPagePart
@@ -13,10 +15,10 @@ use Zizoo\Bundle\CmsBundle\Entity\FeaturedPartner;
  * @ORM\Table(name="zizoo_cms_bundle_featured_partners_page_parts")
  * @ORM\Entity
  */
-class FeaturedPartnersPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts\AbstractPagePart
+class FeaturedPartnersPagePart extends AbstractPagePart
 {
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @Assert\Valid
      *
@@ -99,8 +101,8 @@ class FeaturedPartnersPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts\
         $featuredPartners = $this->featuredPartners;
         $this->featuredPartners = new ArrayCollection();
         foreach ($featuredPartners as $featuredPartner) {
-            $cloneMapRouteLocation = clone $featuredPartner;
-            $this->addFeaturedPartner($cloneMapRouteLocation);
+            $cloneFeaturedPartner = clone $featuredPartner;
+            $this->addFeaturedPartner($cloneFeaturedPartner);
         }
     }
 
@@ -121,6 +123,6 @@ class FeaturedPartnersPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts\
      */
     public function getDefaultAdminType()
     {
-        return new \Zizoo\Bundle\CmsBundle\Form\PageParts\FeaturedPartnersPagePartAdminType();
+        return new FeaturedPartnersPagePartAdminType();
     }
 }

@@ -3,9 +3,11 @@
 namespace Zizoo\Bundle\CmsBundle\Entity\PageParts;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Zizoo\Bundle\CmsBundle\Entity\MapRouteLocation;
+use Zizoo\Bundle\CmsBundle\Form\PageParts\MapPagePartAdminType;
 
 /**
  * MapPagePart
@@ -17,7 +19,7 @@ class MapPagePart extends AbstractPagePart
 {
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @Assert\Valid
      *
@@ -117,10 +119,10 @@ class MapPagePart extends AbstractPagePart
     /**
      * Get the admin form type.
      *
-     * @return \Zizoo\Bundle\CmsBundle\Form\PageParts\MapPagePartAdminType
+     * @return MapPagePartAdminType
      */
     public function getDefaultAdminType()
     {
-        return new \Zizoo\Bundle\CmsBundle\Form\PageParts\MapPagePartAdminType();
+        return new MapPagePartAdminType();
     }
 }

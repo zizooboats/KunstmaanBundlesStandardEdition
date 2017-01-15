@@ -2,17 +2,17 @@
 
 namespace Zizoo\Bundle\CmsBundle\Form\PageParts;
 
-use Kunstmaan\MediaBundle\Entity\Media;
-use Kunstmaan\MediaBundle\Form\Type\MediaType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
 use Kunstmaan\MediaBundle\Validator\Constraints as Assert;
-use Zizoo\Bundle\CmsBundle\Form\FeaturedPartnerAdminType;
+use Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart;
+use Zizoo\Bundle\CmsBundle\Form\IconBulletPointAdminType;
 
 /**
- * FeaturedPartnersPagePartAdminType
+ * IconBulletPointPagePartAdminType
  */
-class FeaturedPartnersPagePartAdminType extends \Symfony\Component\Form\AbstractType
+class IconBulletPointPagePartAdminType extends AbstractType
 {
 
     /**
@@ -29,13 +29,21 @@ class FeaturedPartnersPagePartAdminType extends \Symfony\Component\Form\Abstract
     {
         parent::buildForm($builder, $options);
 
+        $builder->add('alignment', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+            'required' => true,
+            'choices' => array(
+                IconBulletPointPagePart::HORIZONTAL_ALIGNMENT => 'Horizontal',
+                IconBulletPointPagePart::VERTICAL_ALIGNMENT => 'Vertical'
+            )
+        ));
+        
         $builder
-            ->add('featuredPartners', 'Symfony\Component\Form\Extension\Core\Type\CollectionType', array(
-                    'entry_type' => new FeaturedPartnerAdminType(),
+            ->add('iconBulletPoints', 'Symfony\Component\Form\Extension\Core\Type\CollectionType', array(
+                    'entry_type' => new IconBulletPointAdminType(),
                     'allow_add' => true,
                     'allow_delete' => true,
                     'by_reference' => false,
-                    'label' => 'zizoo_cms_bundle.featuredpartnerspagepart.featured_partner_logos',
+                    'label' => 'zizoo_cms_bundle.iconbulletpointpagepart.icon_bullet_points',
                     'cascade_validation' => true,
                     'attr' => array(
                         'nested_form' => true,
@@ -53,7 +61,7 @@ class FeaturedPartnersPagePartAdminType extends \Symfony\Component\Form\Abstract
      */
     public function getBlockPrefix()
     {
-        return 'featuredpartnerspageparttype';
+        return 'iconbulletpointpageparttype';
     }
 
     /**
@@ -64,7 +72,7 @@ class FeaturedPartnersPagePartAdminType extends \Symfony\Component\Form\Abstract
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart',
+            'data_class' => 'Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart',
             'cascade_validation' => true,
         ));
     }

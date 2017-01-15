@@ -13,7 +13,10 @@ zizoo_cms_bundle:
         contact_form: "Contact form"
 
     mappagepart:
-        map_route_locations: "Map route locations:"
+        map_route_locations: "Map Route Locations:"
 
     featuredpartnerspagepart:
-        featured_partner_logo: "Featured Partners"
+        featured_partner_logos: "Featured Partners:"
+
+    iconbulletpointpagepart:
+        icon_bullet_points: "Icon Bullet Points:"
