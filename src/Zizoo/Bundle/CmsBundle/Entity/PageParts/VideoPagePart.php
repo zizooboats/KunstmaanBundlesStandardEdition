@@ -21,6 +21,32 @@ class VideoPagePart extends AbstractPagePart
      */
     protected $video;
 
+
+    /**
+     * @var string
+     *
+     * * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }} for video width."
+     * )
+     *
+     * @ORM\Column(type="integer", name="video_width", options={"default"=50})
+     */
+    protected $videoWidth;
+
+    /**
+     * @var string
+     *
+     * * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }} for video height."
+     * )
+     *
+     * @ORM\Column(type="integer", name="video_height", options={"default"=50})
+     */
+    protected $videoHeight;
+
+
     /**
      * @var string
      *
@@ -28,15 +54,55 @@ class VideoPagePart extends AbstractPagePart
      */
     protected $caption;
 
+
     /**
-     * @var Media
-     *
-     * @ORM\ManyToOne(targetEntity="Kunstmaan\MediaBundle\Entity\Media")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="thumbnail_media_id", referencedColumnName="id")
-     * })
+     * @param Media $video
      */
-    protected $thumbnail;
+    public function setVideo($video)
+    {
+        $this->video = $video;
+    }
+
+    /**
+     * @return Media
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVideoWidth()
+    {
+        return $this->videoWidth;
+    }
+
+    /**
+     * @param string $videoWidth
+     */
+    public function setVideoWidth($videoWidth)
+    {
+        $this->videoWidth = $videoWidth;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVideoHeight()
+    {
+        return $this->videoHeight;
+    }
+
+    /**
+     * @param string $videoHeight
+     */
+    public function setVideoHeight($videoHeight)
+    {
+        $this->videoHeight = $videoHeight;
+    }
+
 
     /**
      * @param string $caption
@@ -51,47 +117,16 @@ class VideoPagePart extends AbstractPagePart
      */
     public function getCaption()
     {
-	return $this->caption;
+	    return $this->caption;
     }
 
-    /**
-     * @param \Kunstmaan\MediaBundle\Entity\Media $thumbnail
-     */
-    public function setThumbnail($thumbnail)
-    {
-	$this->thumbnail = $thumbnail;
-    }
-
-    /**
-     * @return \Kunstmaan\MediaBundle\Entity\Media
-     */
-    public function getThumbnail()
-    {
-	return $this->thumbnail;
-    }
-
-    /**
-     * @param \Kunstmaan\MediaBundle\Entity\Media $video
-     */
-    public function setVideo($video)
-    {
-	$this->video = $video;
-    }
-
-    /**
-     * @return \Kunstmaan\MediaBundle\Entity\Media
-     */
-    public function getVideo()
-    {
-	return $this->video;
-    }
 
     /**
      * @return string
      */
     public function getDefaultView()
     {
-	return "ZizooCmsBundle:PageParts/VideoPagePart:view.html.twig";
+	    return "ZizooCmsBundle:PageParts/VideoPagePart:view.html.twig";
     }
 
     /**
@@ -99,6 +134,6 @@ class VideoPagePart extends AbstractPagePart
      */
     public function getDefaultAdminType()
     {
-	return new \Zizoo\Bundle\CmsBundle\Form\PageParts\VideoPagePartAdminType();
+	    return new \Zizoo\Bundle\CmsBundle\Form\PageParts\VideoPagePartAdminType();
     }
 }

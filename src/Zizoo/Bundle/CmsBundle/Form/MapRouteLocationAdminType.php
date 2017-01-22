@@ -2,6 +2,8 @@
 
 namespace Zizoo\Bundle\CmsBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -14,7 +16,14 @@ class MapRouteLocationAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('region');
+        $builder->add('region', EntityType::class, array(
+                'class' => 'Zizoo\Bundle\CmsBundle\Entity\Region',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('r')
+                              ->orderBy('r.internalName', 'ASC');
+                }
+            )
+        );
     }
     
     /**

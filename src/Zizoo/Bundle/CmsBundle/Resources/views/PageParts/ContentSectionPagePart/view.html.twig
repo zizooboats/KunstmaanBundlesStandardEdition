@@ -1,0 +1,77 @@
+<div class="pagepart pagepart--s">
+	<div class="wrapper wrapper--wide">
+		{% if resource.header is not empty %}
+			<h2 class="{% if resource.image is not empty %}copy-sp-l{% else %}wrapper copy-sp-l{% endif %}">
+				{{ resource.header }}
+			</h2>
+		{% endif %}
+		<div class="{% if resource.image is not empty %}grid grid--2col grid--vspaced grid--spaced{% else %}wrapper u-cf{% endif %}">
+			{% if resource.imageRight == true %}
+				<div class="grid__unit copy">
+					{{ resource.content|raw }}
+					{% if resource.quote is not empty %}
+						{#<p class="quote">{{ resource.quote|widont|raw }}</p>#}
+					{% endif %}
+				</div><!-- /.grid__unit -->
+			{% endif %}
+			{% if resource.image is not empty %}
+				<div class="grid__unit">
+					<figure class="figure figure--alt">
+
+						{% if resource.overlayImageText is not null and resource.overlayImageText|trim != "" %}
+							{% set setImageOverlayText = true %}
+						{% endif %}
+
+
+						{% if setImageOverlayText is defined %}
+							<div class="image-overlay">
+						{% endif %}
+
+								<img
+									class="img-fluid img-fluid--thumb_565x353 js-img-lazy"
+									data-src="{{ asset(resource.image.url|imagine_filter('optim')) }}"
+									src="{{ 'zizoo.base.image_placeholder'|trans }}"
+									alt="{{ resource.image.description }}"
+								>
+
+						{% if setImageOverlayText is defined %}
+							<div class="image-overlay-circle">
+		                        <span>
+		                            {{ resource.overlayImageText|upper }}
+		                        </span>
+							</div>
+						</div>
+						{% endif %}
+
+						{% if resource.imageAltText is not empty %}
+							<figcaption class="figure__caption">
+								{{ resource.imageAltText }}
+							</figcaption>
+						{% endif %}
+					</figure>
+				</div><!-- /.grid__unit -->
+			{% endif %}
+			{% if resource.imageRight == false %}
+				<div class="grid__unit copy">
+					{{ resource.content|raw }}
+					<br>
+					{% if resource.quote is not empty %}
+						<p class="quote">
+							{{ resource.quote }}
+						</p>
+					{% endif %}
+				</div><!-- /.grid__unit -->
+			{% endif %}
+		</div><!-- /.grid -->
+	</div><!-- /.wrapper -->
+</div><!-- /.pagepart -->
+
+{% block head_styles %}
+	{% stylesheets
+		'assets/new/css/components/pageparts/overlay-image-text.css'
+		filter='cssrewrite,?uglifycss'
+		package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

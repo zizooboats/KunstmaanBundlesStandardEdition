@@ -5,6 +5,7 @@ namespace Zizoo\Bundle\CmsBundle\Entity\PageParts;
 use Doctrine\ORM\Mapping as ORM;
 use Kunstmaan\MediaBundle\Entity\Media;
 use Symfony\Component\Validator\Constraints as Assert;
+use Zizoo\Bundle\CmsBundle\Model\OverlayImagePagePartTrait;
 
 /**
  * ImagePagePart
@@ -14,6 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ImagePagePart extends AbstractPagePart
 {
+    use OverlayImagePagePartTrait;
+
     /**
      * @ORM\ManyToOne(targetEntity="Kunstmaan\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="media_id", referencedColumnName="id")
@@ -48,7 +51,7 @@ class ImagePagePart extends AbstractPagePart
      */
     public function getOpenInNewWindow()
     {
-	return $this->openInNewWindow;
+	    return $this->openInNewWindow;
     }
 
     /**
@@ -60,9 +63,9 @@ class ImagePagePart extends AbstractPagePart
      */
     public function setOpenInNewWindow($openInNewWindow)
     {
-	$this->openInNewWindow = $openInNewWindow;
+        $this->openInNewWindow = $openInNewWindow;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -74,9 +77,9 @@ class ImagePagePart extends AbstractPagePart
      */
     public function setLink($link)
     {
-	$this->link = $link;
+        $this->link = $link;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -86,7 +89,7 @@ class ImagePagePart extends AbstractPagePart
      */
     public function getLink()
     {
-	return $this->link;
+	    return $this->link;
     }
 
     /**
@@ -98,9 +101,9 @@ class ImagePagePart extends AbstractPagePart
      */
     public function setAltText($altText)
     {
-	$this->altText = $altText;
+        $this->altText = $altText;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -110,7 +113,7 @@ class ImagePagePart extends AbstractPagePart
      */
     public function getAltText()
     {
-	return $this->altText;
+	    return $this->altText;
     }
 
     /**
@@ -120,7 +123,7 @@ class ImagePagePart extends AbstractPagePart
      */
     public function getMedia()
     {
-	return $this->media;
+	    return $this->media;
     }
 
     /**
@@ -132,9 +135,9 @@ class ImagePagePart extends AbstractPagePart
      */
     public function setMedia(Media $media)
     {
-	$this->media = $media;
+        $this->media = $media;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -146,9 +149,9 @@ class ImagePagePart extends AbstractPagePart
      */
     public function setCaption($caption)
     {
-	$this->caption = $caption;
+        $this->caption = $caption;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -158,7 +161,7 @@ class ImagePagePart extends AbstractPagePart
      */
     public function getCaption()
     {
-	return $this->caption;
+	    return $this->caption;
     }
 
     /**

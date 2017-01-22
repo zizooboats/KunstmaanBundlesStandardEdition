@@ -1,5 +1,6 @@
 {% javascripts
 	'assets/new/js/mapPagePart.js'
+	'assets/new/js/overlayImageText.js'
 	filter='?uglifyjs2'
 %}
 <script src="{{ asset(asset_url) }}"{{ app.environment == 'prod' and asyncJS ? ' async': '' }}></script>

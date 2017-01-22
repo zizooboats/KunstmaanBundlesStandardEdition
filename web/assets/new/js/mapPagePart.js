@@ -30,12 +30,25 @@
 		var googleMarkers = [];
 
 		var mapRouteCoordinates = [];
+
+		var markerImage = {
+			url: 'https://dev.zizoo.technology/assets/new/img/zizoo-map-marker-blue-big.png',
+			labelOrigin: new google.maps.Point(27, 27)
+		};
+
 		for (var key in mapRouteLocations) {
 			var position = new window.google.maps.LatLng(mapRouteLocations[key]["lat"], mapRouteLocations[key]["lng"]);
+
 			googleMarkers.push(new window.google.maps.Marker({
 				position: position,
 				map: map,
-				label: key
+				label: {
+					color: "#5ac0cf",
+					text: key,
+					fontWeight: "900",
+					fontSize: "x-large"
+				},
+				icon: markerImage,
 			}));
 			bounds.extend(position);
 

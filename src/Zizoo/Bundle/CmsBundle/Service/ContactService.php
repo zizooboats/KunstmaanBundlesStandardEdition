@@ -44,6 +44,7 @@
                             'phone_number' => isset($data['phone_number']) ? $data['phone_number'] : null,
                             'country' => $country,
                             'country_code' => $data['country'],
+                            'phone_code' => PhoneCodeService::getPhoneCode($data['country']),
                             'message' => $data['message']
                         )
                     ),

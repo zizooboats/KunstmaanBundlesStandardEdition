@@ -11,8 +11,10 @@
 
     use Symfony\Component\Form\AbstractType;
     use Symfony\Component\Form\FormBuilderInterface;
+    use Symfony\Component\Intl\Intl;
     use Symfony\Component\OptionsResolver\OptionsResolver;
     use Symfony\Component\Translation\TranslatorInterface;
+    use Zizoo\Bundle\CmsBundle\Service\PhoneCodeService;
 
     class ContactPagePartType extends AbstractType
     {
@@ -48,6 +50,7 @@
         public function buildForm(FormBuilderInterface $builder, array $options)
         {
 
+            Intl::getRegionBundle()->getCountryNames();
             parent::buildForm($builder, $options);
 
             $builder->add('name', 'text',
@@ -61,9 +64,21 @@
                         'required' => true,
                         'mapped' => false,
                     )
-                )
-                ->add('country', 'country',
+                );
+
+            //$countryArray = array_flip(Intl::getRegionBundle()->getCountryNames());
+            $countryArray = Intl::getRegionBundle()->getCountryNames();
+            $countryPhoneArray = array();
+            foreach ($countryArray as $code => $name) {
+                $phoneCode = PhoneCodeService::getPhoneCode($code);
+                $countryPhoneArray[$code] = $name . " " . $phoneCode;
+            }
+
+
+            $builder
+                ->add('country', 'choice',
                     array(
+                        'choices' => $countryPhoneArray,
                         'required' => true,
                         'mapped' => false,
                         'data' => 'DE',

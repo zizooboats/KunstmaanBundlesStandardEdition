@@ -1,14 +1,8 @@
 {% if resource.video is defined and resource.video %}
-    <div class="video-pp wrapper wrapper--wide">
-
-        {% if resource.thumbnail is not empty %}
-            {% set videoImage = asset(resource.thumbnail.url|imagine_filter('optim')) %}
-        {% endif %}
+    <div class="video-pp">
 
         {% set handler = mediamanager.getHandler(resource.video) %}
         {% set helper = handler.getFormHelper(resource.video) %}
-
-	    {% set videoImage = helper.thumbnailUrl %}
 
         {% if helper.type == 'youtube' %}
             {% set videoEmbedUrl = "//www.youtube.com/embed/" ~ helper.code%}
@@ -19,14 +13,16 @@
         {% endif %}
 
         <div class="videolink">
-            <div class="js-videolink-container videolink__video-container style embed-container">
-            {#<div class="embed-container">#}
+            <div class="embed-container">
+	            <div style="width: {{ resource.videoWidth }}%; height: {{ resource.videoHeight }}%">
 		            <iframe src='{{ videoEmbedUrl }}' autoplay="false" frameborder='0' allowfullscreen></iframe>
+		            {% if resource.caption %}
+			            <figcaption>{{ resource.caption }}</figcaption>
+		            {% endif %}
+	            </div>
             </div>
         </div>
-        {% if resource.caption %}
-            <div class="caption">{{ resource.caption }}</div>
-        {% endif %}
+
     </div>
 {% endif %}
 

@@ -1,6 +1,6 @@
 {% import _self as buildImage %}
 
-{% macro setFilters(image, altText, type) %}
+{% macro setFilters(image, altText, type, overlayText) %}
 
     {% set imgUrl = '' %}
 
@@ -26,14 +26,32 @@
         <figure class="image-pp">
             {% set imageType = resource.media.originalFilename|lower|split('.')|last %}
 
+	        {% if resource.overlayImageText is not null and resource.overlayImageText|trim != "" %}
+	            {% set setImageOverlayText = true %}
+	        {% endif %}
+
+
             {% if resource.link is defined and resource.link != '' %}
-            <a href="{{ resource.link }}" {% if resource.openinnewwindow %}target="_blank"{% endif %}>
-                {% endif %}
+                <a href="{{ resource.link }}" {% if resource.openinnewwindow %}target="_blank"{% endif %}>
+            {% endif %}
 
-                {{ buildImage.setFilters(resource.media.url, resource.altText, imageType) }}
+            {% if setImageOverlayText is defined %}
+                <div class="image-overlay">
+            {% endif %}
 
-                {% if resource.link is defined and resource.link != '' %}
-            </a>
+            {{ buildImage.setFilters(resource.media.url, resource.altText, imageType, resource.overlayImageText) }}
+
+            {% if setImageOverlayText is defined %}
+	                <div class="image-overlay-circle">
+		                <span>
+		                    {{ resource.overlayImageText|upper }}
+		                </span>
+	                </div>
+	            </div>
+            {% endif %}
+
+            {% if resource.link is defined and resource.link != '' %}
+                </a>
             {% endif %}
             {% if resource.caption %}
                 <figcaption>
@@ -43,3 +61,13 @@
         </figure>
     {% endif %}
 {% endif %}
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/overlay-image-text.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

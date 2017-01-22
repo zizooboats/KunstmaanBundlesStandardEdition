@@ -7,3 +7,7 @@ services:
     zizoo_cms_bundle.service.contact:
         class: Zizoo\Bundle\CmsBundle\Service\ContactService
         arguments: ['@service_container']
+
+    zizoo_cms_bundle.service.contact:
+        class: Zizoo\Bundle\CmsBundle\Service\PhoneCodeService
+#        arguments: ['@service_container']

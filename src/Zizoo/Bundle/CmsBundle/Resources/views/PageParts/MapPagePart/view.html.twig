@@ -14,7 +14,7 @@
 	{% endstylesheets %}
 {% endblock %}
 
-<script>
+<script type="application/javascript">
 	var googleApiKey = '{{ google_api_key }}'
 	{% if resource.mapRouteLocations is not empty %}
 		var mapRouteLocations_{{ resource.id }} = {

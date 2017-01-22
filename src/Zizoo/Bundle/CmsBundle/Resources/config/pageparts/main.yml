@@ -4,11 +4,12 @@ types:
     - { name: Audio, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\AudioPagePart }
     - { name: Button, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ButtonPagePart }
     - { name: Contact, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ContactPagePart }
+    - { name: ContentSection, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ContentSectionPagePart }
     - { name: Download, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart }
-    - { name: Featured Partners, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart }
+    - { name: 'Featured Partners', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart }
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }
-    - { name: Icon Bullet Point, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart }
+    - { name: 'Icon Bullet Point', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart }
     - { name: IntroText, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IntroTextPagePart }
     - { name: Line, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinePagePart }
     - { name: Link, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinkPagePart }
