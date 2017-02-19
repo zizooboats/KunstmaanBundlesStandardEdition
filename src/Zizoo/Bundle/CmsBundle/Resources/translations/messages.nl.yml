@@ -12,6 +12,10 @@ zizoo_cms_bundle:
         confirmation_message: "Your contact enquiry was successfully sent. Thank you!"
         contact_form: "Contact form"
 
+    videopagepart:
+            video_width_label: "Video width (in %)"
+            video_height_label: "Video height (in %)"
+
     mappagepart:
         map_route_locations: "Map Route Locations:"
 
@@ -20,3 +24,12 @@ zizoo_cms_bundle:
 
     iconbulletpointpagepart:
         icon_bullet_points: "Icon Bullet Points:"
+
+    overlayimage:
+        text: "Overlay image text:"
+
+    downloadwithemailpagepart:
+        title: "Title"
+        image: "Image"
+        button_label: "Button label"
+        success_message: "Success message"

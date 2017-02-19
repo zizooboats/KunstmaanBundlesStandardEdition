@@ -11,12 +11,6 @@
 
 					var imgWidth = img.clientWidth;
 					var imgHeight = img.clientHeight;
-					console.log($(".image-overlay").height());
-					console.log($(img).height());
-					console.log($(img).css("height"));
-
-					console.log(imgWidth);
-					console.log(imgHeight);
 
 					var divCircle = $(el).find('.image-overlay-circle')[0];
 					var span = $(divCircle).find('span')[0];

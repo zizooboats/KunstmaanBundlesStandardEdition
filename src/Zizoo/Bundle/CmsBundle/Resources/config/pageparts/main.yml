@@ -6,6 +6,7 @@ types:
     - { name: Contact, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ContactPagePart }
     - { name: ContentSection, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ContentSectionPagePart }
     - { name: Download, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart }
+    - { name: 'Download With Email', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePart }
     - { name: 'Featured Partners', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart }
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }

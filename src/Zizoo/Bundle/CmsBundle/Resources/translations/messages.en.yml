@@ -27,3 +27,9 @@ zizoo_cms_bundle:
 
     overlayimage:
         text: "Overlay image text:"
+
+    downloadwithemailpagepart:
+        title: "Title"
+        image: "Image"
+        button_label: "Button label"
+        success_message: "Success message"

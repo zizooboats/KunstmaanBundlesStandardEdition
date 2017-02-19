@@ -1,0 +1,78 @@
+.dwef {
+	max-width: 800px;
+	text-align: left;
+	margin: 20px auto;
+	min-width: 165px;
+}
+.dwef input,
+.dwef button {
+	border: 0;
+	outline: 0;
+	padding: 1em;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	resize: none;
+}
+.dwef input:focus {
+	-moz-box-shadow: 0 0px 2px #e74c3c !important;
+	-webkit-box-shadow: 0 0px 2px #e74c3c !important;
+	box-shadow: 0 0px 2px #e74c3c !important;
+}
+
+.email-submit {
+	color: white;
+	background: #349fac;
+	cursor: pointer;
+}
+.email-submit:hover {
+	-moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+	-webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+	box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+.dwef textarea {
+	height: 126px;
+}
+
+.half {
+	float: left;
+	width: 48%;
+	margin-bottom: 1em;
+}
+
+.right {
+	width: 50%;
+}
+
+.left {
+	margin-right: 2%;
+}
+
+.dwef:before,
+.dwef:after {
+	content: " ";
+	display: table;
+}
+
+.dwef:after {
+	clear: both;
+}
+
+.dwef-success-msg {
+	text-align: center;
+	display: none;
+	color: white;
+	background-color: #3bed93;
+	padding:15px;
+	border: 5px solid #4cb7d4;
+	-moz-border-image: -moz-linear-gradient(top left, #4cb7d4 0%, #52e9ed 100%);
+	-webkit-border-image: -webkit-linear-gradient(top left, #4cb7d4 0%, #52e9ed 100%);
+	border-image: linear-gradient(to bottom right, #4cb7d4 0%, #52e9ed 100%);
+	border-image-slice: 1;
+}

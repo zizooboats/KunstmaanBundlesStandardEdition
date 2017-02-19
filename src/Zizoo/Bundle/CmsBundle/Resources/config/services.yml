@@ -10,4 +10,20 @@ services:
 
     zizoo_cms_bundle.service.contact:
         class: Zizoo\Bundle\CmsBundle\Service\PhoneCodeService
-#        arguments: ['@service_container']
+
+    zizoo_cms_bundle.repository.download_email:
+        class: Zizoo\Bundle\CmsBundle\Entity\DownloadEmailRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\DownloadEmail
+
+    zizoo_cms_bundle.repository.download_with_email:
+        class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePartRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePart
+
+
+    zizoo_cms_bundle.service.download_email:
+        class: Zizoo\Bundle\CmsBundle\Service\DownloadEmailService
+        arguments: ['@zizoo_cms_bundle.repository.download_email', '@zizoo_cms_bundle.repository.download_with_email']

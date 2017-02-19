@@ -16,12 +16,12 @@
         /**
          * @var string
          *
-         * * @Assert\Type(
+         * @Assert\Type(
          *     type="string",
          *     message="The value {{ value }} is not a valid {{ type }} for overlay image text"
          * )
          *
-         * @ORM\Column(type="string", name="overlay_text", nullable=true)
+         * @ORM\Column(type="string", length=255, name="overlay_text", nullable=true)
          */
         protected $overlayImageText;
 

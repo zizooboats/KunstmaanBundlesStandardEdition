@@ -12,3 +12,8 @@ zizoocmsbundle_contact_post_form:
     path:   /contact
     methods: POST
     defaults: { _controller: ZizooCmsBundle:Contact:postContactFrom }
+
+zizoocmsbundle_download_with_email:
+    path:   /download-email/{pagePart}
+    defaults: { _controller: ZizooCmsBundle:DownloadWithEmail:download}
+

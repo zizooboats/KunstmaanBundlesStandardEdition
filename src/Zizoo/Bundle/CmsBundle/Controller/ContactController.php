@@ -19,6 +19,8 @@
     class ContactController extends Controller
     {
 
+        use ControllerTrait;
+
         /**
          * @param string $emailTo
          * @param string $subject
@@ -27,14 +29,6 @@
          */
         public function getContactFromAction($emailTo, $subject)
         {
-            /** @var Request $request */
-            $request = $this->get('request_stack')->getMasterRequest();
-
-            $admin = false;
-            if(strpos($request->getUri(), 'admin') !== false) {
-                $admin = true;
-            }
-
             $form = $this->createForm(
                 new ContactPagePartType($emailTo, $subject),
                 null,
@@ -46,7 +40,7 @@
 
             return $this->render('ZizooCmsBundle:PageParts/ContactPagePart:form.html.twig',
                 array(
-                    'admin' => $admin,
+                    'admin' => $this->isAdmin(),
                     'form' => $form->createView()
                 )
             );
