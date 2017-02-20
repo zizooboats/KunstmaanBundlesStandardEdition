@@ -1,0 +1,22 @@
+{% set itemsPerPage = null %}
+{% if resource.id is not null and resource.itemsPerPage is not null and  resource.itemsPerPage > 0%}
+	{% set itemsPerPage = resource.itemsPerPage %}
+{% endif %}
+
+<div class="instagram-pp">
+	<div class="wrapper">
+		<div class="instagram-media-container">
+			{{ render(controller('ZizooCmsBundle:Instagram:getRecentMedia', {'mediaCount': itemsPerPage})) }}
+		</div>
+		<div class="instagram-load-more">
+			<button class="instagram-load-more-btn"
+			        data-url="{{ url('zizoocmsbundle_instagram_get_recent_media') }}{% if itemsPerPage is not null %}?mediaCount={{ resource.itemsPerPage }}{% endif %}"
+			        {% if resource.itemsPerPage is not null and  resource.itemsPerPage > 0 %}
+			            data-count="{{ resource.itemsPerPage }}"
+			        {% endif %}
+			>
+				{{ 'zizoo_cms_bundle.instagrampagepart.load_more'|trans }}
+			</button>
+		</div>
+	</div>
+</div>

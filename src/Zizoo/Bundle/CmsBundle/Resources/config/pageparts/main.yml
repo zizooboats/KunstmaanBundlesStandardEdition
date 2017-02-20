@@ -11,11 +11,13 @@ types:
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }
     - { name: 'Icon Bullet Point', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart }
+    - { name: Instagram, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\InstagramPagePart }
     - { name: IntroText, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IntroTextPagePart }
     - { name: Line, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinePagePart }
     - { name: Link, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinkPagePart }
     - { name: Map, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\MapPagePart }
     - { name: RawHtml, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\RawHtmlPagePart }
+    - { name: Testimonials, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TestimonialsPagePart }
     - { name: Text, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TextPagePart }
     - { name: Toc, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TocPagePart }
     - { name: ToTop, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ToTopPagePart }

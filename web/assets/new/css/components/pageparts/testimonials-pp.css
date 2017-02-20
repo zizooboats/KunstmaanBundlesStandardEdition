@@ -1,0 +1,32 @@
+.testimonial{
+	text-align: center;
+}
+.testimonial .testimonial-pic{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+.testimonial .testimonial-pic img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.testimonial .testimonial-content{
+	font-size: 14px;
+	color: #787878;
+	line-height: 27px;
+	position: relative;
+	margin: 0;
+}
+
+.testimonials-pp .grid {
+	border-bottom: 1px solid #8e8e8e;
+}
+
+
+.testimonials-pp .testimonials-pp-title {
+	text-align: center;
+}

@@ -65,12 +65,6 @@
 {% block head_styles %}
 	{% stylesheets
 		'assets/new/css/components/pageparts/overlay-image-text.css'
-		filter='cssrewrite,?uglifycss'
-		package='zizoo'
-	%}
-	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
-	{% endstylesheets %}
-	{% stylesheets
 		'assets/new/css/components/pageparts/download-with-email-pp.css'
 		filter='cssrewrite,?uglifycss'
 		package='zizoo'

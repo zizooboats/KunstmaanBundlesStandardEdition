@@ -23,8 +23,8 @@ class DownloadWithEmailPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts
      * @Assert\Length(
      *      min = 1,
      *      max = 255,
-     *      minMessage = "Game name must be at least {{ limit }} characters long",
-     *      maxMessage = "Game name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Title must be at least {{ limit }} characters long",
+     *      maxMessage = "Title cannot be longer than {{ limit }} characters"
      * )
      * @Assert\Type(
      *     type="string",
@@ -60,7 +60,7 @@ class DownloadWithEmailPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts
      * @Assert\Type("object")
      *
      * @ORM\ManyToOne(targetEntity="Kunstmaan\MediaBundle\Entity\Media")
-     * @ORM\JoinColumn(name="media_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="media_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $media;
 
@@ -70,7 +70,7 @@ class DownloadWithEmailPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts
      * @Assert\Type("object")
      *
      * @ORM\ManyToOne(targetEntity="Kunstmaan\MediaBundle\Entity\Media")
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      *
      */
     protected $image;

@@ -33,3 +33,9 @@ zizoo_cms_bundle:
         image: "Image"
         button_label: "Button label"
         success_message: "Success message"
+
+    instagrampagepart:
+        load_more: "Load more"
+
+    testimonialspagepart:
+        testimonials: "Testimonials"

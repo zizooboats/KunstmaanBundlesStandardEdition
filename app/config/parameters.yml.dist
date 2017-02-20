@@ -42,3 +42,7 @@ parameters:
     google.api.dev_key:         ~
 
     doctrine.server_version:    5.6
+
+    instagram.api.access_token: ~
+    instagram.api.get_recent_media_count: ~
+
