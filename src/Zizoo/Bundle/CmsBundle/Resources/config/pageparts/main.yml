@@ -8,6 +8,7 @@ types:
     - { name: Download, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart }
     - { name: 'Download With Email', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePart }
     - { name: 'Featured Partners', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\FeaturedPartnersPagePart }
+    - { name: Gallery, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\GalleryPagePart }
     - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
     - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }
     - { name: 'Icon Bullet Point', class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IconBulletPointPagePart }

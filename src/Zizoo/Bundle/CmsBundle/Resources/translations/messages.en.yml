@@ -39,3 +39,7 @@ zizoo_cms_bundle:
 
     testimonialspagepart:
         testimonials: "Testimonials"
+
+    gallerypagepart:
+        gallery: "Gallery"
+        gallery_caption: "Gallery caption"
