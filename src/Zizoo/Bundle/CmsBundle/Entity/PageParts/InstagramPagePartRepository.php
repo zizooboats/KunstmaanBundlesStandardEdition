@@ -10,7 +10,7 @@
 
 
     use Doctrine\ORM\EntityRepository;
-    use Zizoo\Bundle\CmsBundle\Model\InstagramPagePartRepositoryInterface;
+    use Zizoo\Bundle\CmsBundle\Model\PageParts\InstagramPagePartRepositoryInterface;
 
     class InstagramPagePartRepository extends EntityRepository implements InstagramPagePartRepositoryInterface
     {

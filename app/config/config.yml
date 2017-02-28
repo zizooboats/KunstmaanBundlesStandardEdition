@@ -24,6 +24,8 @@ twig:
         requiredlocales: %requiredlocales%
         gtm_code: %analytics.googletagmanager%
         google_api_key: %google.api.dev_key%
+        instagram_media_per_page: %instagram.api.get_recent_media_count%
+        instagram_follow_username: %instagram.api.username%
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 

@@ -21,10 +21,10 @@
                 $mediaCount = $request->get('mediaCount');
             }
 
-            $lastMediaId = $request->get('lastMediaId');
+            $pageNumber = $request->get('pageNumber');
 
             $instagramService = $this->get('zizoo_cms_bundle.service.instagram_service');
-            $medias = $instagramService->getRecentMedia($mediaCount, $lastMediaId);
+            $medias = $instagramService->getRecentMedia($pageNumber, $mediaCount);
 
             $response = $this->render(
                 '@ZizooCms/PageParts/InstagramPagePart/media_items.html.twig',
@@ -40,8 +40,10 @@
                     $mediaCount = $this->getParameter('instagram.api.get_recent_media_count');
                 }
 
+                $dbMediaCount = $instagramService->getInstagramMediaCount();
+
                 $showLoadMore = true;
-                if($mediaCount > count($medias)) {
+                if($dbMediaCount <= ($mediaCount * ($pageNumber+1))) {
                     $showLoadMore = false;
                 }
 

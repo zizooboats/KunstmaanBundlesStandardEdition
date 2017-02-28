@@ -18,4 +18,5 @@
          * @return array
          */
         public function getRecentMedia($mediaCount = null, $lastMediaId = null);
+
     }

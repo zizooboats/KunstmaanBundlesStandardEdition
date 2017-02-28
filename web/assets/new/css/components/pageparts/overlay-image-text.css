@@ -1,5 +1,7 @@
 .image-overlay {
 	position: relative;
+	text-align: center;
+	padding: 0px !important;
 }
 
 .image-overlay-circle {

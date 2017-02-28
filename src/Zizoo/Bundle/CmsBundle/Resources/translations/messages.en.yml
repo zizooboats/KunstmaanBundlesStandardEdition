@@ -35,7 +35,8 @@ zizoo_cms_bundle:
         success_message: "Success message"
 
     instagrampagepart:
-        load_more: "Load more"
+        load_more: "Load more..."
+        follow: "Follow in instagram"
 
     testimonialspagepart:
         testimonials: "Testimonials"

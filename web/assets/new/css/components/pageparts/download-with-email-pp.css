@@ -48,6 +48,7 @@
 	float: left;
 	width: 48%;
 	margin-bottom: 1em;
+	min-width: 300px;
 }
 
 .dwef .right {

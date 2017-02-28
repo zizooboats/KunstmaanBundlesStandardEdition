@@ -6,9 +6,8 @@
      * Time: 17:31
      */
 
-    namespace Zizoo\Bundle\CmsBundle\Model;
-
-
+    namespace Zizoo\Bundle\CmsBundle\Model\PageParts;
+    
     use Zizoo\Bundle\CmsBundle\Entity\PageParts\InstagramPagePart;
 
     interface InstagramPagePartRepositoryInterface

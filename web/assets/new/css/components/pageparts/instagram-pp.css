@@ -1,0 +1,40 @@
+.instagram-pp {
+	margin: 10px;
+	text-align: center;
+}
+
+.instagram-pp .instagram-media {
+	min-width: 397px;
+	min-height: 397px;
+}
+
+.instagram-pp img{
+	width: 392px;
+	height: 392px;
+}
+
+.instagram-pp .instagram-load-more {
+	margin-top: 20px;
+}
+
+.instagram-pp .instagram-load-more-btn {
+	background-color: #525252;
+	color: #ffffff;
+}
+
+
+.instagram-pp .instagram-load-more-btn:hover {
+	opacity: 0.85;
+}
+
+.instagram-pp .instagram-follow-btn {
+	background: #517fa4;
+	color: #fff;
+}
+
+.instagram-pp .instagram-follow-btn:hover {
+	opacity: 0.85;
+}
+
+
+

@@ -8,27 +8,26 @@ $( document ).ready(function()
 
 function loadMore($button) {
 
-	var divWraper = $button.closest('.wrapper')[0];
+	var divWraper = $button.closest('.instagram-pp')[0];
 	var divContainer = $(divWraper).find('.instagram-media-container')[0];
 
+	var pageNumber = $button.attr('data-page');
+	if(typeof pageNumber == 'undefined') {
+		pageNumber = 0;
+	}
 	var mediaCount = $button.attr('data-count');
-	var lastMediaId = $(divContainer).find('.instagram-media').last().attr('id');
-
 	var url = $button.attr('data-url');
-	var lastMediaParam = 'lastMediaId=' + lastMediaId;
-
-	if(url.indexOf('?') === -1) {
-		url += 	'?' + lastMediaParam;
-	}
-	else {
-		url += '&' + lastMediaParam;
-	}
 
 	$.ajax({
 		url: url,
 		type: "GET",
+		data: {
+			'pageNumber': pageNumber,
+			'mediaCount': mediaCount
+		},
 		success: function (data, textStatus, jqXHR) {
 			$(divContainer).append(data.html);
+			$button.attr('data-page', parseInt(pageNumber) + 1);
 			if(!data.showLoadMore) {
 				$button.hide();
 			}

@@ -28,7 +28,7 @@ class GalleryPagePart extends \Zizoo\Bundle\CmsBundle\Entity\PageParts\AbstractP
      *     @ORM\JoinColumn(name="gallery_page_part_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="media_id", referencedColumnName="id", unique=true)
+     *     @ORM\JoinColumn(name="media_id", referencedColumnName="id")
      *   }
      * )
      */

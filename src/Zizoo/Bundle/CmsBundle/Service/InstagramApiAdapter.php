@@ -25,20 +25,14 @@
         private $accessToken;
 
         /**
-         * @var int
-         */
-        private $mediaCount;
-
-        /**
          * InstagramApiAdapter constructor.
          *
          * @param string $accessToken
          * @param int    $resultCount
          */
-        public function __construct($accessToken, $resultCount)
+        public function __construct($accessToken)
         {
             $this->accessToken = $accessToken;
-            $this->mediaCount = $resultCount;
         }
 
 
@@ -47,9 +41,6 @@
             $params = array();
             if(!is_null($mediaCount)) {
                 $params['count'] = $mediaCount;
-            }
-            else{
-                $params['count'] = $this->mediaCount;
             }
 
             if(!is_null($lastMediaId)) {
@@ -97,6 +88,7 @@
             }
             curl_close($ch);
 
-            return json_decode($jsonData);
+            $result = json_decode($jsonData);
+            return $result;
         }
     }
