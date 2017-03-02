@@ -14,6 +14,8 @@ use Zizoo\Bundle\CmsBundle\Model\InstagramMediaRepositoryInterface;
  */
 class InstagramMediaRepository extends EntityRepository implements InstagramMediaRepositoryInterface
 {
+    const CACHE_TTL = 86400;
+
     public function save(InstagramMedia $media)
     {
         $em = $this->getEntityManager();
@@ -46,6 +48,7 @@ class InstagramMediaRepository extends EntityRepository implements InstagramMedi
         return $qb
             ->orderBy('im.createdAt', 'desc')
             ->getQuery()
+            ->useResultCache(true, self::CACHE_TTL)
             ->getResult();
     }
 
@@ -55,6 +58,7 @@ class InstagramMediaRepository extends EntityRepository implements InstagramMedi
         return $this->createQueryBuilder('im')
             ->select('COUNT(im.id)')
             ->getQuery()
+            ->useResultCache(true, self::CACHE_TTL)
             ->getSingleScalarResult();
     }
 
