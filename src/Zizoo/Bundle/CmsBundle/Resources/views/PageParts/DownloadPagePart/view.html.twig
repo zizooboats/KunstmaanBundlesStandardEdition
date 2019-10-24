@@ -1,11 +1,37 @@
 {% if resource.media is not empty and app.request is defined %}
     {% set name = resource.media.name %}
     {% if name is empty %}
-        {% set name = "Download"|trans %}
+        {% set name = "zizoo_cms_bundle.downloadpagepart.download"|trans %}
     {% endif %}
 
+	{% set date = resource.media.updatedAt|date("d/m/Y") %}
+	{% if date is empty %}
+		{% set date = resource.media.createdAt|date("d/m/Y") %}
+	{% endif %}
+
+	{% if resource.thumbnail is not empty %}
+		{% set thumbnailUrl = asset(resource.thumbnail.url) %}
+	{% endif %}
+	{% set mediaUrl = app.request.schemeandhttphost ~ app.request.basePath ~ asset(resource.media.url) %}
+
     <p class="download-pp">
-        <a href="{{ app.request.schemeandhttphost ~ app.request.basePath ~ asset(resource.media.url) }}" target="_blank" class="download">{{ name }}</a>
-        <span>| {{ resource.media.contentTypeShort }} {{ resource.media.getFileSize() }}</span>
+        <a download href="{{ mediaUrl }}" class="download">
+	        <div class="wrapper">
+		        <div class="download-pp-thumbnail">{% if thumbnailUrl is defined%}<img src="{{ thumbnailUrl | imagine_filter('downloadpagepart_thumbnail') }}" alt="thumbnail"/>{% endif %}</div>
+		        <div class="download-pp-file">
+			        <div>{{name}}</div>
+		        </div>
+	        </div>
+        </a>
     </p>
 {% endif %}
+
+{% block head_styles %}
+	{% stylesheets
+		'assets/new/css/components/pageparts/download-pp.css'
+		filter='cssrewrite,?uglifycss'
+		package='zizoo'
+	%}
+		<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

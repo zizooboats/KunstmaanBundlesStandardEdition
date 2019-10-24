@@ -1,0 +1,31 @@
+<div id="{{ resource.id }}-map-pp" class="map-pp">
+	{% if resource.mapRouteLocations is not empty %}
+		<div id="{{ resource.id }}-map-container" class="map-pp-map-container"></div>
+	{% endif %}
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/map-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}
+
+<script type="application/javascript">
+	var googleApiKey = '{{ google_api_key }}'
+	{% if resource.mapRouteLocations is not empty %}
+		var mapRouteLocations_{{ resource.id }} = {
+			{% if resource.mapRouteLocations|length > 0 %}
+				{% set counter = resource.mapRouteLocations|length %}
+				{% for index, mapRouteLocation in resource.mapRouteLocations %}
+					{{ index + 1 }} : { lat: {{ mapRouteLocation.region.lat }}, lng: {{ mapRouteLocation.region.lng }} }
+					{% if counter > 1 %}, {% endif %}
+					{% set counter = counter - 1 %}
+				{% endfor %}
+			{% endif %}
+		};
+	{% endif %}
+</script>

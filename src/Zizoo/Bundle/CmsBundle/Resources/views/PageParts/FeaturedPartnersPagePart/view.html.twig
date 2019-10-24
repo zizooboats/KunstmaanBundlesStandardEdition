@@ -1,0 +1,8 @@
+<div class="featured-partners-pp featuredin">
+    {% if resource.featuredPartners is not empty %}
+        {% for featuredPartner in resource.featuredPartners %}
+	        {% set logoUrl = asset(featuredPartner.logo.url) %}
+            <img src="{{ logoUrl | imagine_filter('featuredpartnerspagepart_logo') }}"/>
+        {% endfor %}
+    {% endif %}
+</div>

@@ -1,0 +1,42 @@
+{% set itemsPerPage = instagram_media_per_page %}
+{% if resource.id is not null and resource.itemsPerPage is not null and resource.itemsPerPage > 0 %}
+	{% set itemsPerPage = resource.itemsPerPage %}
+{% endif %}
+
+{% if itemsPerPage >= 4 %}
+	{% set columnNumber =  4 %}
+{% else %}
+	{% set columnNumber = itemsPerPage %}
+{% endif %}
+
+<div class="instagram-pp">
+		<div class="instagram-media-container grid grid--{{ itemsPerPage }}col grid--spaced">
+			{{ render(controller('ZizooCmsBundle:Instagram:getRecentMedia', {'mediaCount' : itemsPerPage})) }}
+		</div>
+		<div class="wrapper instagram-load-more">
+			<button class="instagram-load-more-btn button"
+			        data-page="1"
+			        data-url="{{ url('zizoocmsbundle_instagram_get_recent_media') }}{% if itemsPerPage is not null %}?mediaCount={{ resource.itemsPerPage }}{% endif %}"
+			        {% if resource.itemsPerPage is not null and  resource.itemsPerPage > 0 %}
+			            data-count="{{ resource.itemsPerPage }}"
+			        {% endif %}
+			>
+				{{ 'zizoo_cms_bundle.instagrampagepart.load_more'|trans }}
+			</button>
+			<a href="https://www.instagram.com/{{ instagram_follow_username }}/" class="button instagram-follow-btn">
+				<i class="fa fa-instagram"></i>
+				{{ 'zizoo_cms_bundle.instagrampagepart.follow'|trans }}
+			</a>
+		</div>
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/instagram-pp.css'
+	'assets/new/vendor/font-awesome/css/font-awesome.min.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

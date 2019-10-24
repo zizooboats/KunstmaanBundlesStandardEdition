@@ -1,2 +1,40 @@
 services:
+    zizoo_cms_bundle.service.contact:
+        class: Zizoo\Bundle\CmsBundle\Service\ContactService
+        arguments: ['@service_container']
 
+    zizoo_cms_bundle.repository.download_email:
+        class: Zizoo\Bundle\CmsBundle\Entity\DownloadEmailRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\DownloadEmail
+
+    zizoo_cms_bundle.repository.download_with_email:
+        class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePartRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadWithEmailPagePart
+
+    zizoo_cms_bundle.service.download_email:
+        class: Zizoo\Bundle\CmsBundle\Service\DownloadEmailService
+        arguments: ['@zizoo_cms_bundle.repository.download_email', '@zizoo_cms_bundle.repository.download_with_email']
+
+    zioo_cms_bundle.repository.instagram_page_part:
+        class: Zizoo\Bundle\CmsBundle\Entity\PageParts\InstagramPagePartRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\PageParts\InstagramPagePart
+
+    zizoo_cms_bundle.repository.instagram_media:
+        class: Zizoo\Bundle\CmsBundle\Entity\InstagramMediaRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - Zizoo\Bundle\CmsBundle\Entity\InstagramMedia
+
+    zizoo_cms_bundle.service.instagram_api_adapter:
+        class: Zizoo\Bundle\CmsBundle\Service\InstagramApiAdapter
+        arguments: ['%instagram.api.access_token%']
+
+    zizoo_cms_bundle.service.instagram_service:
+        class: Zizoo\Bundle\CmsBundle\Service\InstagramService
+        arguments: ['@zizoo_cms_bundle.repository.instagram_media', '@zioo_cms_bundle.repository.instagram_page_part', '@zizoo_cms_bundle.service.instagram_api_adapter']

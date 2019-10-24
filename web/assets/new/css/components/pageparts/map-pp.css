@@ -1,0 +1,14 @@
+.map-pp {
+	width: 60%;
+	text-align: center;
+	margin: 0px auto;
+	position: relative;
+}
+
+.map-pp-map-container {
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 50%;
+	padding-top: 30px;
+	position: relative;
+}

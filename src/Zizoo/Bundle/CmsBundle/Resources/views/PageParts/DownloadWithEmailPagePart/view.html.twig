@@ -1,0 +1,74 @@
+{% import _self as buildImage %}
+
+{% macro setFilters(image, altText, type, overlayText) %}
+
+	{% set imgUrl = '' %}
+
+	{% if type in ['svg', 'gif'] %}
+		{% set imgUrl = absolute_url(asset(image)) %}
+		<img src="{{ imgUrl }}"{% if altText %} alt="{{ altText }}"{% endif %} />
+	{% else %}
+		{% set imgUrl_huge =    asset(image | imagine_filter('image_huge_' ~ type)) %}
+		{% set imgUrl_big =     asset(image | imagine_filter('image_big_' ~ type)) %}
+		{% set imgUrl_medium =  asset(image | imagine_filter('image_medium_' ~ type)) %}
+		{% set imgUrl_small =   asset(image | imagine_filter('image_small_' ~ type)) %}
+		{% set srcSet = imgUrl_huge ~ ' 2400w,' ~ imgUrl_big ~ ' 1200w,' ~ imgUrl_medium ~ ' 600w,' ~ imgUrl_small ~ ' 400w' %}
+
+		<img srcset="{{ srcSet }}"{% if altText %} sizes="100vw" alt="{{ altText }}"{% endif %}/>
+		<noscript>
+			<img src="{{ imgUrl_big }}"{% if altText %} alt="{{ altText }}"{% endif %} />
+		</noscript>
+	{% endif %}
+{% endmacro %}
+
+
+<div class="download-with-email-pp dwef">
+	<div class="wrapper">
+		<div class="half left">
+			{% if resource.media is not empty %}
+					<figure>
+						{% set imageType = resource.image.originalFilename|lower|split('.')|last %}
+
+						{% if resource.overlayImageText is not null and resource.overlayImageText|trim != "" %}
+							{% set setImageOverlayText = true %}
+						{% endif %}
+
+						{% if setImageOverlayText is defined %}
+							<div class="image-overlay">
+						{% endif %}
+								{{ buildImage.setFilters(resource.image.url, null, imageType, resource.overlayImageText) }}
+
+								{% if setImageOverlayText is defined %}
+								<div class="image-overlay-circle">
+					                <span>
+					                    {{ resource.overlayImageText|upper }}
+					                </span>
+								</div>
+							</div>
+								{% endif %}
+					</figure>
+			{% endif %}
+		</div>
+		<div class="half right">
+			<h3>{{ resource.title }}</h3>
+			{% if resource.id is not null %}
+				{{ render(controller('ZizooCmsBundle:DownloadWithEmail:download', {'pagePart': resource})) }}
+			{% endif %}
+		</div>
+	</div>
+	<div class="dwef-success-msg">
+		{{ resource.successMessage }}
+	</div>
+</div>
+
+
+{% block head_styles %}
+	{% stylesheets
+		'assets/new/css/components/pageparts/overlay-image-text.css'
+		'assets/new/css/components/pageparts/download-with-email-pp.css'
+		filter='cssrewrite,?uglifycss'
+		package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

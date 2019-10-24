@@ -1,0 +1,33 @@
+{% if resource.testimonials|length >= 3 %}
+	{% set columnNumber = 3 %}
+{% else %}
+	{% set columnNumber = resource.testimonials|length %}
+{% endif %}
+
+<div class="testimonials-pp">
+	<div class="wrapper">
+		<div class="testimonials-pp-title"><h2>{{ 'zizoo_cms_bundle.testimonialspagepart.testimonials'|trans|upper }}</h2></div>
+		<div class="grid grid--{{ columnNumber }}col grid--spaced">
+			{% for testimonial in resource.testimonials %}
+				<div class="testimonial grid__unit">
+					<div class="testimonial-pic">
+						{% if testimonial.image is not empty %}<img src="{{ asset(testimonial.image.url) }}" {% if testimonial.imageAltText is not empty %}alt="{{ testimonial.imageAltText }}"{% endif %} />{% endif %}
+					</div>
+					<p class="testimonial-content">
+						{{ testimonial.content|raw }}
+					</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/testimonials-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

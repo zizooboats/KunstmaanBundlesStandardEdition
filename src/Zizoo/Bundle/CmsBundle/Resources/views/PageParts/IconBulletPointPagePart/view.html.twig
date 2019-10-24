@@ -1,0 +1,53 @@
+<div class="bg-snow usp usp--pin usp--row">
+	<div class="icon-bullet-point-pp wrapper wrapper--wide">
+	{% if(resource.iconBulletPoints is not empty) %}
+
+		{% if resource.iconBulletPoints|length >= 4 %}
+			{% set columnNumber = 4 %}
+		{% else %}
+			{% set columnNumber = resource.iconBulletPoints|length %}
+		{% endif %}
+
+		{% if resource.alignment == constant('Zizoo\\Bundle\\CmsBundle\\Entity\\PageParts\\IconBulletPointPagePart::VERTICAL_ALIGNMENT') %}
+			<div class="grid grid--1col grid--spaced icon-bullet-point-vertical">
+				{% for iconBulletPoint in resource.iconBulletPoints %}
+					{%  if iconBulletPoint.icon is not empty %}
+						<span class="grid__unit usp__unit">
+				                <img class="usp__icon" src="{{ iconBulletPoint.icon.url | imagine_filter('iconbulletpointpagepart_icon') }}" style="background: {{ iconBulletPoint.circleColor }} !important">
+				                <span class="usp__text">{{ iconBulletPoint.title }}<span class="usp__subtext">{{ iconBulletPoint.content }}</span></span>
+				            </span>
+					{%  endif %}
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="grid grid--{{ columnNumber }}col grid--spaced">
+				{% for iconBulletPoint in resource.iconBulletPoints %}
+					{%  if iconBulletPoint.icon is not empty %}
+						{% if "svg" in iconBulletPoint.icon.contentType %}
+						<span class="grid__unit usp__unit">
+			                <img class="usp__icon" src="{{ iconBulletPoint.icon.url }}" style="width:40px; height40px; background: {{ iconBulletPoint.circleColor }} !important">
+			                <span class="usp__text">{{ iconBulletPoint.title }}<span class="usp__subtext">{{ iconBulletPoint.content }}</span></span>
+			            </span>
+						{% else %}
+						<span class="grid__unit usp__unit">
+			                <img class="usp__icon" src="{{ iconBulletPoint.icon.url | imagine_filter('iconbulletpointpagepart_icon') }}" style="background: {{ iconBulletPoint.circleColor }} !important">
+			                <span class="usp__text">{{ iconBulletPoint.title }}<span class="usp__subtext">{{ iconBulletPoint.content }}</span></span>
+			            </span>
+						{% endif %}
+					{%  endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	{% endif %}
+	</div>
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+		'assets/new/css/components/pageparts/icon-bullet-point-pp.css'
+		filter='cssrewrite,?uglifycss'
+		package='zizoo'
+	%}
+		<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

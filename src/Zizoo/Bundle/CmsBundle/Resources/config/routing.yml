@@ -3,3 +3,22 @@ zizoocmsbundle_default:
     type:     annotation
     prefix:   /
 
+zizoocmsbundle_contact_get_form:
+    path:   /contact
+    methods: GET
+    defaults: { _controller: ZizooCmsBundle:Contact:getContactFrom }
+
+zizoocmsbundle_contact_post_form:
+    path:   /contact
+    methods: POST
+    defaults: { _controller: ZizooCmsBundle:Contact:postContactFrom }
+
+zizoocmsbundle_download_with_email:
+    path:   /download-email/{pagePart}
+    defaults: { _controller: ZizooCmsBundle:DownloadWithEmail:download}
+
+zizoocmsbundle_instagram_get_recent_media:
+    path:   /instagram/get-recent-media/
+    methods: GET
+    defaults: { _controller: ZizooCmsBundle:Instagram:getRecentMedia}
+

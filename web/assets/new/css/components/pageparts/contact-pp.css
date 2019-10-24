@@ -1,0 +1,67 @@
+.cf {
+	max-width: 600px;
+	text-align: center;
+	margin: 20px auto;
+	min-width: 165px;
+}
+.cf input,
+.cf textarea,
+.cf select,
+.cf button {
+	border: 0;
+	outline: 0;
+	padding: 1em;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	resize: none;
+}
+.cf input:focus,
+.cf textarea:focus,
+.cf select:focus {
+	-moz-box-shadow: 0 0px 2px #e74c3c !important;
+	-webkit-box-shadow: 0 0px 2px #e74c3c !important;
+	box-shadow: 0 0px 2px #e74c3c !important;
+}
+.contact-submit {
+	color: white;
+	background: #349fac;
+	cursor: pointer;
+}
+.contact-submit:hover {
+	-moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+	-webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+	box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+.cf textarea {
+	height: 126px;
+}
+
+.half {
+	float: left;
+	width: 48%;
+	margin-bottom: 1em;
+}
+
+.right {
+	width: 50%;
+}
+
+.left {
+	margin-right: 2%;
+}
+.cf:before,
+.cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}

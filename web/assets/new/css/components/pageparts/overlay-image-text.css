@@ -1,0 +1,14 @@
+.image-overlay {
+	position: relative;
+	text-align: center;
+	padding: 0px !important;
+}
+
+.image-overlay-circle {
+	position: absolute;
+	z-index: 100;
+	border-radius: 50%;
+	background-color: #ffffff;
+	text-align: center;
+	font-weight: bold;
+}

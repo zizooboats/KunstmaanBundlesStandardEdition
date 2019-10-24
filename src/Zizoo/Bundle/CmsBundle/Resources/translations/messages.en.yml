@@ -1,0 +1,46 @@
+zizoo_cms_bundle:
+    downloadpagepart:
+        thumbnail: "Thumbnail"
+        download: "Download"
+
+    contactpagepart:
+        your_name: "Your name"
+        email: "E-mail"
+        phone_number: "Phone number"
+        your_message: "Your message"
+        send_message: "Send message"
+        confirmation_message: "Your contact enquiry was successfully sent. Thank you!"
+        contact_form: "Contact form"
+
+    videopagepart:
+        video_width_label: "Video width (in %)"
+        video_height_label: "Video height (in %)"
+
+    mappagepart:
+        map_route_locations: "Map Route Locations:"
+
+    featuredpartnerspagepart:
+        featured_partner_logos: "Featured Partners:"
+
+    iconbulletpointpagepart:
+        icon_bullet_points: "Icon Bullet Points:"
+
+    overlayimage:
+        text: "Overlay image text:"
+
+    downloadwithemailpagepart:
+        title: "Title"
+        image: "Image"
+        button_label: "Button label"
+        success_message: "Success message"
+
+    instagrampagepart:
+        load_more: "Load more..."
+        follow: "Follow in instagram"
+
+    testimonialspagepart:
+        testimonials: "Testimonials"
+
+    gallerypagepart:
+        gallery: "Gallery"
+        gallery_caption: "Gallery caption"

@@ -1,0 +1,40 @@
+<div class="gallery-pp">
+	<div class="wrapper wrapper--wide">
+		{% if resource.gallery is not empty %}
+			<figure class="figure figure--alt">
+				<div
+					class="owl-carousel owl-theme owl-theme--s"
+					data-carousel='{
+                "navigation": true,
+                "navigationText" : ["", ""],
+                "pagination": false,
+                "paginationSpeed": 400,
+                "slideSpeed": 300,
+                "autoPlay": false,
+                "singleItem": true,
+                "lazyLoad": true,
+                "transitionStyle": "fade",
+                "touchDrag": false
+            }'
+				>
+					{% for media in resource.gallery %}
+						<img class="img-fluid lazyOwl" data-src="{{ asset(media.url|imagine_filter('optim')) }}" alt="{{ media.description }}">
+					{% endfor %}
+				</div>
+				{% if resource.galleryAltText %}
+					<figcaption class="figure__caption">{{ resource.galleryAltText }}</figcaption>
+				{% endif %}
+			</figure>
+		{% endif %}
+	</div>
+</div>
+
+{% block head_styles %}
+	{% stylesheets
+	'assets/new/css/components/pageparts/gallery-pp.css'
+	filter='cssrewrite,?uglifycss'
+	package='zizoo'
+	%}
+	<link rel="stylesheet" href="{{ asset(asset_url, 'zizoo') }}?{{ assets_version() }}">
+	{% endstylesheets %}
+{% endblock %}

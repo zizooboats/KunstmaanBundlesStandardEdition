@@ -1,0 +1,9 @@
+.gallery-pp .wrapper div {
+	padding: 0px !important;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.gallery-pp .wrapper div img {
+	height: 500px;
+}

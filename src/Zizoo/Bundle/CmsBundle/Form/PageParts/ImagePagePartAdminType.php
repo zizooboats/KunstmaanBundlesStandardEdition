@@ -27,28 +27,32 @@ class ImagePagePartAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-	parent::buildForm($builder, $options);
+        parent::buildForm($builder, $options);
 
-	$builder->add('media', MediaType::class, array(
-	    'label' => 'mediapagepart.image.choosefile',
-	    'mediatype' => 'image',
-	    'required' => true
-	));
-	$builder->add('caption', TextType::class, array(
-	    'required' => false
-	));
-	$builder->add('altText', TextType::class, array(
-	    'required' => false,
-	    'label' => 'mediapagepart.image.alttext'
-	));
-	$builder->add('link', URLChooserType::class, array(
-	    'required' => false,
-	    'label' => 'mediapagepart.image.link'
-	));
-	$builder->add('openInNewWindow', CheckboxType::class, array(
-	    'required' => false,
-	    'label' => 'mediapagepart.image.openinnewwindow'
-	));
+        $builder->add('media', MediaType::class, array(
+            'label' => 'mediapagepart.image.choosefile',
+            'mediatype' => 'image',
+            'required' => true
+        ));
+        $builder->add('caption', TextType::class, array(
+            'required' => false
+        ));
+        $builder->add('altText', TextType::class, array(
+            'required' => false,
+            'label' => 'mediapagepart.image.alttext'
+        ));
+        $builder->add('overlayImageText', TextType::class, array(
+            'required' => false,
+            'label' => 'zizoo_cms_bundle.overlayimage.text'
+        ));
+        $builder->add('link', URLChooserType::class, array(
+            'required' => false,
+            'label' => 'mediapagepart.image.link'
+        ));
+        $builder->add('openInNewWindow', CheckboxType::class, array(
+            'required' => false,
+            'label' => 'mediapagepart.image.openinnewwindow'
+        ));
     }
 
     /**
@@ -58,7 +62,7 @@ class ImagePagePartAdminType extends AbstractType
      */
     public function getBlockPrefix()
     {
-	return 'imagepageparttype';
+	    return 'imagepageparttype';
     }
 
     /**
@@ -68,8 +72,8 @@ class ImagePagePartAdminType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-	$resolver->setDefaults(array(
-	    'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart',
-	));
+        $resolver->setDefaults(array(
+            'data_class' => '\Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart',
+        ));
     }
 }
